@@ -1,10 +1,10 @@
-<mxfile host="app.diagrams.net" modified="2023-03-23T15:07:19.975Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="P7NE3c9QR2SCQMwJC_Jc" version="21.0.6" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-23T15:07:25.104Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="j2D20izaYe-PNpfayJB-" version="21.0.10" type="github">
   <diagram name="Página-1" id="rRmgHoFKnycX_-8nzV18">
-    <mxGraphModel dx="933" dy="400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="926" dy="545" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="SPi5FZIp8fA5BR_gK6Ee-1" value="USUARIO" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="1">
+        <mxCell id="SPi5FZIp8fA5BR_gK6Ee-1" value="USUARIO" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
           <mxGeometry x="90" y="165" width="80" height="20" as="geometry" />
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-2" value="" style="endArrow=none;html=1;rounded=0;labelBackgroundColor=none;fontColor=default;" edge="1" parent="1">
@@ -188,7 +188,7 @@
           <mxGeometry x="420" y="700" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-21" value="&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;esta relacionado con usuario, quien elimina el elemento de la lista manualmente&lt;/font&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#dae8fc;strokeColor=#6c8ebf;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="550" y="840" width="130" height="90" as="geometry" />
+          <mxGeometry x="260" y="860" width="130" height="90" as="geometry" />
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-22" value="&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;- se pueden agregar hasta 10&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;- No se remueven una vez vistos&lt;/font&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#f8cecc;strokeColor=#b85450;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="690" y="750" width="160" height="60" as="geometry" />
@@ -308,6 +308,18 @@
             <mxPoint x="1110" y="770" as="sourcePoint" />
             <mxPoint x="1270" y="770" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="kKy3jOiPBYoeRaOaSeYh-56" value="&lt;div style=&quot;font-size: 10px;&quot;&gt;Cada usuario del abono puede asociar a su cuenta hasta cinco (5) dispositivos&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#f8cecc;strokeColor=#b85450;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=8;pointerEvents=1;align=center;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="930" y="745" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kKy3jOiPBYoeRaOaSeYh-58" value="&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;lo que vio&lt;/font&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="70" y="815" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kKy3jOiPBYoeRaOaSeYh-59" value="&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;lo que esta mirando&lt;/font&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="330" y="775" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kKy3jOiPBYoeRaOaSeYh-60" value="&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;lo que va a mirar&lt;/font&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="585" y="820" width="70" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
