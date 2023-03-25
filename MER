@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-03-25T16:07:43.466Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="rV9yYfuBbfcSZoQjMdn-" version="21.0.10" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-25T16:15:25.546Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="i9ymMI_iSdTSfnRqaFkS" version="21.0.10" type="github">
   <diagram name="Página-1" id="rRmgHoFKnycX_-8nzV18">
-    <mxGraphModel dx="580" dy="1796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1400" dy="1769" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -44,16 +44,16 @@
           <mxGeometry x="5" y="240" width="80" height="30" as="geometry" />
         </mxCell>
         <mxCell id="SPi5FZIp8fA5BR_gK6Ee-36" value="NIÑO" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="105" y="245" width="50" height="20" as="geometry" />
+          <mxGeometry x="102.48" y="245" width="35" height="20" as="geometry" />
         </mxCell>
         <mxCell id="SPi5FZIp8fA5BR_gK6Ee-38" value="&lt;br&gt;ISA" style="triangle;whiteSpace=wrap;html=1;direction=north;" parent="1" vertex="1">
-          <mxGeometry x="110" y="200" width="40" height="30" as="geometry" />
+          <mxGeometry x="99.98" y="200" width="40" height="30" as="geometry" />
         </mxCell>
         <mxCell id="SPi5FZIp8fA5BR_gK6Ee-59" value="reproduce" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="290" y="155" width="90" height="40" as="geometry" />
         </mxCell>
         <mxCell id="SPi5FZIp8fA5BR_gK6Ee-60" value="descarga" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="20" y="310" width="90" height="40" as="geometry" />
+          <mxGeometry x="291" y="345" width="90" height="40" as="geometry" />
         </mxCell>
         <mxCell id="SPi5FZIp8fA5BR_gK6Ee-62" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="SPi5FZIp8fA5BR_gK6Ee-38" target="SPi5FZIp8fA5BR_gK6Ee-1" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -80,22 +80,22 @@
           <mxGeometry x="460" y="990" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-70" value="título castellano" style="ellipse;whiteSpace=wrap;html=1;align=center;fontSize=12;" parent="1" vertex="1">
-          <mxGeometry x="800" y="415" width="80" height="40" as="geometry" />
+          <mxGeometry x="950" y="340" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-71" value="título inglés" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="890" y="415" width="80" height="40" as="geometry" />
+          <mxGeometry x="1040" y="340" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-72" value="productor" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="770" y="365" width="70" height="40" as="geometry" />
+          <mxGeometry x="920" y="290" width="70" height="40" as="geometry" />
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-73" value="actor principal" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="850" y="465" width="70" height="40" as="geometry" />
+          <mxGeometry x="1000" y="390" width="70" height="40" as="geometry" />
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-74" value="actor secundario" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="710" y="405" width="80" height="40" as="geometry" />
+          <mxGeometry x="860" y="330" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-86" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="770" y="120" width="170" height="160" as="geometry" />
+          <mxGeometry x="889" y="60" width="170" height="160" as="geometry" />
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-79" value="PREMIO" style="shape=ext;margin=3;double=1;whiteSpace=wrap;html=1;align=center;" parent="kKy3jOiPBYoeRaOaSeYh-86" vertex="1">
           <mxGeometry x="90" y="60" width="80" height="40" as="geometry" />
@@ -424,13 +424,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-94" value="PELI" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="860" y="375" width="60" height="30" as="geometry" />
+          <mxGeometry x="1010" y="300" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-95" value="calificación de salida" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="730" y="455" width="90" height="50" as="geometry" />
+          <mxGeometry x="880" y="380" width="90" height="50" as="geometry" />
         </mxCell>
         <mxCell id="kKy3jOiPBYoeRaOaSeYh-96" value="año lanzamiento" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="670" y="355" width="90" height="45" as="geometry" />
+          <mxGeometry x="820" y="280" width="90" height="45" as="geometry" />
         </mxCell>
         <mxCell id="0_ZSBrneHOY8cBieGr5g-4" value="DISPOSITIVO" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="1">
           <mxGeometry x="139.98" y="-20" width="80" height="20" as="geometry" />
@@ -466,7 +466,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="0_ZSBrneHOY8cBieGr5g-12" value="&lt;div style=&quot;font-size: 10px;&quot;&gt;Calificación de salida es multivaluado: ATP, mayores de 13, 16, etc&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#F8CECC;strokeColor=#F19C99;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=none;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="715" y="515" width="120" height="50" as="geometry" />
+          <mxGeometry x="865" y="440" width="120" height="50" as="geometry" />
         </mxCell>
         <mxCell id="0_ZSBrneHOY8cBieGr5g-13" value="&lt;div style=&quot;font-size: 10px;&quot;&gt;Dos usuarios de la cuenta pueden visualizar el mismo contenido, pero no necesariamente al mismo tiempo.&lt;br&gt;idioma, subtitulos y velocidad se pueden alterar &lt;b&gt;durante &lt;/b&gt;la reproducción&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#F8CECC;strokeColor=#F19C99;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=none;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="290" y="80" width="185" height="70" as="geometry" />
@@ -480,8 +480,8 @@
             <mxPoint x="460" y="200" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0_ZSBrneHOY8cBieGr5g-17" value="&lt;p style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;la velocidad solo se puede alterar en celulares o tablets de &lt;b&gt;alta gama&lt;/b&gt;&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;font-size: 10px; background-color: initial;&quot;&gt;➝ los dispositivos tienen que tener &quot;&lt;b&gt;gama&lt;/b&gt;&quot; o &lt;b&gt;modelo&lt;/b&gt;&lt;br&gt;Es multivaluado: .75, 1, 1.25, 1.5&lt;/span&gt;&lt;/p&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#F8CECC;strokeColor=#F19C99;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=none;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="160" y="240" width="185" height="70" as="geometry" />
+        <mxCell id="0_ZSBrneHOY8cBieGr5g-17" value="&lt;p style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;la velocidad solo se puede alterar en celulares o tablets de &lt;b&gt;alta gama&lt;/b&gt;&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;font-size: 10px; background-color: initial;&quot;&gt;➝ los dispositivos tienen que tener &quot;&lt;b&gt;gama&lt;/b&gt;&quot; o &lt;b&gt;modelo.&amp;nbsp;&lt;/b&gt;Es multivaluado: .75, 1, 1.25, 1.5&lt;/span&gt;&lt;/p&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#F8CECC;strokeColor=#F19C99;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=none;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="189.98" y="235" width="150" height="90" as="geometry" />
         </mxCell>
         <mxCell id="0_ZSBrneHOY8cBieGr5g-18" value="modelo" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="80" width="50.02" height="30" as="geometry" />
@@ -541,8 +541,48 @@
             <mxPoint x="515" y="174.57" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0_ZSBrneHOY8cBieGr5g-32" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;máx: 4 hs de descarga de contenido para cada usuario de la cuenta. Límite se da en horas (no bytes)&lt;/span&gt;&lt;/p&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#F8CECC;strokeColor=#F19C99;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=none;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="25.02" y="445" width="149.98" height="65" as="geometry" />
+        <mxCell id="0_ZSBrneHOY8cBieGr5g-32" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;máx: 4 hs de descarga de contenido para cada usuario de la cuenta. Límite se da en horas (no bytes)&lt;br&gt;Calidad de descarga es multivaluado. calidad normal solo incluye subtitulos en castellano&lt;/span&gt;&lt;/p&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#F8CECC;strokeColor=#F19C99;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=none;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="222.5" y="440" width="245" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="0_ZSBrneHOY8cBieGr5g-33" value="calidad de descarga" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="296.01" y="395" width="79.98" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="0_ZSBrneHOY8cBieGr5g-34" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="SPi5FZIp8fA5BR_gK6Ee-60" target="0_ZSBrneHOY8cBieGr5g-33">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="396" y="395" as="sourcePoint" />
+            <mxPoint x="556" y="395" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0_ZSBrneHOY8cBieGr5g-36" value="" style="endArrow=none;html=1;rounded=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SPi5FZIp8fA5BR_gK6Ee-1" target="SPi5FZIp8fA5BR_gK6Ee-60">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="330" as="sourcePoint" />
+            <mxPoint x="290" y="360" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="150" y="365" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0_ZSBrneHOY8cBieGr5g-37" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="SPi5FZIp8fA5BR_gK6Ee-60" target="SPi5FZIp8fA5BR_gK6Ee-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="395" y="190" as="sourcePoint" />
+            <mxPoint x="536" y="370" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="420" y="365" />
+              <mxPoint x="490" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0_ZSBrneHOY8cBieGr5g-39" value="&lt;font color=&quot;#ff0000&quot;&gt;tiempo de descarga (?&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;align=center;strokeColor=#FF0000;" vertex="1" parent="1">
+          <mxGeometry x="381" y="385" width="79.98" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="0_ZSBrneHOY8cBieGr5g-40" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;no sé si poner tiempo de descarga, pq en realidad seria la duración del contenido&lt;/span&gt;&lt;/p&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#F8CECC;strokeColor=#F19C99;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=none;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="480" y="440" width="135.02" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="0_ZSBrneHOY8cBieGr5g-49" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="SPi5FZIp8fA5BR_gK6Ee-60" target="0_ZSBrneHOY8cBieGr5g-39">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="450" y="408.75" as="sourcePoint" />
+            <mxPoint x="610" y="408.75" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
