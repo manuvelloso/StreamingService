@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-04-08T12:35:50.527Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="KkBuFYT8_z-YmCF-hWQX" version="21.1.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-04-08T12:36:00.926Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="CSomSWySd5y2D7_fxn0Z" version="21.1.4" type="github">
   <diagram name="MER" id="rRmgHoFKnycX_-8nzV18">
-    <mxGraphModel dx="1947" dy="1649" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2320" dy="1870" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -916,19 +916,19 @@
         <mxCell id="0_ZSBrneHOY8cBieGr5g-68" value="descuento" style="ellipse;whiteSpace=wrap;html=1;align=center;strokeColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="-190.00000000000003" y="60" width="74.98" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="X_t4JNM2s6cpNC2kyH9I-1" value="forma de pago" style="ellipse;whiteSpace=wrap;html=1;align=center;strokeColor=#000000;" vertex="1" parent="1">
+        <mxCell id="X_t4JNM2s6cpNC2kyH9I-1" value="forma de pago" style="ellipse;whiteSpace=wrap;html=1;align=center;strokeColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="-363" y="122.5" width="90" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="X_t4JNM2s6cpNC2kyH9I-2" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;si paga año adelantado&lt;/span&gt;&lt;/p&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#F8CECC;strokeColor=#F19C99;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=none;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="1">
+        <mxCell id="X_t4JNM2s6cpNC2kyH9I-2" value="&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;si paga año adelantado&lt;/span&gt;&lt;/p&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#F8CECC;strokeColor=#F19C99;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=none;shadow=1;size=8;pointerEvents=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="-211.2" y="30" width="117.38" height="25" as="geometry" />
         </mxCell>
-        <mxCell id="X_t4JNM2s6cpNC2kyH9I-3" value="fecha vto" style="ellipse;whiteSpace=wrap;html=1;align=center;strokeColor=#000000;" vertex="1" parent="1">
+        <mxCell id="X_t4JNM2s6cpNC2kyH9I-3" value="fecha vto" style="ellipse;whiteSpace=wrap;html=1;align=center;strokeColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="-448" y="60" width="90" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="X_t4JNM2s6cpNC2kyH9I-4" value="factura" style="ellipse;whiteSpace=wrap;html=1;align=center;strokeColor=#000000;" vertex="1" parent="1">
+        <mxCell id="X_t4JNM2s6cpNC2kyH9I-4" value="factura" style="ellipse;whiteSpace=wrap;html=1;align=center;strokeColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="-415" y="10" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="X_t4JNM2s6cpNC2kyH9I-5" value="fecha pago" style="ellipse;whiteSpace=wrap;html=1;align=center;strokeColor=#000000;" vertex="1" parent="1">
+        <mxCell id="X_t4JNM2s6cpNC2kyH9I-5" value="fecha pago" style="ellipse;whiteSpace=wrap;html=1;align=center;strokeColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="-443" y="105" width="80" height="30" as="geometry" />
         </mxCell>
         <mxCell id="X_t4JNM2s6cpNC2kyH9I-8" value="email" style="ellipse;whiteSpace=wrap;html=1;align=center;strokeColor=#000000;" vertex="1" parent="1">
