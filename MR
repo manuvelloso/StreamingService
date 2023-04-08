@@ -1,29 +1,54 @@
 -------------------------------------------------------------------------- ENTIDADES --------------------------------------------------------------------------
-PELI(titulo original, titulo castellano, titulo ingles, subtitulado, audio, duracion, año lanzamiento, director, genero, productor, calificacion, calificacion salida) 
+CUENTA(cuentaID, email, contraseña, tarjeta, idioma)
 
-DOCUMENTAL(titulo original, director, genero, calificacion, tema, duracion, subtitulado, año lanzamiento, audio)
+USUARIO(username, mobilephone)
 
-PREMIO(titulo original, nombre, festival, categoria, año)
+DISPOSITIVO(dispID, nombre, modelo, red_wifi)
+
+PELI(titulo_original, titulo_castellano, titulo_ingles, subtitulado, audio, duracion, año_lanzamiento, director, genero, productor, calificación, calificación_salida) 
+
+SERIE(titulo_original, titulo_castellano, titulo_inglés, sutitulado, audio, director, genero, productor, calificación, calificación_salida, bool mini)
+
+TEMPORADA(numeroTEMP, año_lanzamiento, cant_capítulos, bool final)
+
+CAPÍTULO(numeroCAP, tituloCAP, duracion)
+
+DOCUMENTAL(titulo_original, director, genero, calificacion, tema, duracion, subtitulado, año_lanzamiento, audio)
+
+PREMIO(titulo_original, nombre, festival, categoria, año)
 
 ACTOR(nombre, apellido)
 
-
-
 -------------------------------------------------------------------------- RELACIONES --------------------------------------------------------------------------
-REPRODUCE(username, titulo original, velocidad, idioma, subtitulos, pto de suspenso)
 
-DESCARGA(username, titulo original, cantidad total de tiempo descargado, calidad)
+ABONA(cuentaID, username, factura, fechaVTO, fechaPAGO, formaPAGO, monto, bool año_adelantado, bool descuento)
 
-FAVORITO(username, titulo original)
+ASOCIAN(cuentaID, dispID)
 
-HISTORIAL(username, titulo original, fecha, número)
+WATCHPARTY(username, username, bool autorización) // ROLES
 
-CALIFICA(username, titulo original, average, personal)
+CASTING(dispID, dispID, bool reconocido) // ROLES
 
-PERMITE_VER(ID, titulo original)
+POSEE(username, dispID)
 
-ACTUA_PELI(titulo original, nombre, apellido)
+REPRODUCE(username, titulo_original, velocidad, idioma, subtitulos, pto_suspenso)
 
-ACTUA_SERIE(titulo original, nombre, apellido)
+DESCARGA(username, titulo_original, total_tiempo_descargado, calidad)
 
-GANA(titulo original, nombre)
+FAVORITO(username, titulo_original)
+
+HISTORIAL(username, titulo_original, fecha, número)
+
+CALIFICA(username, titulo_original, average, personal) // REVISAR
+
+PERMITE_VER(ID, titulo_original)
+
+SEGMENTADA(titulo_original, numero)
+
+CONTIENE(numeroTEMP, numeroCAP, tituloCAP)
+
+ACTUA_PELI(titulo_original, nombre, apellido, bool principal)
+
+ACTUA_SERIE(titulo_original, nombre, apellido, bool principal)
+
+GANA(titulo_original, nombre) // REVISAR
