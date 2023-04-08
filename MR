@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------- ENTIDADES --------------------------------------------------------------------------
+PELI(titulo original, titulo castellano, titulo ingles, subtitulado, audio, duracion, año lanzamiento, director, genero, productor, calificacion, calificacion salida) 
+
+DOCUMENTAL(titulo original, director, genero, calificacion, tema, duracion, subtitulado, año lanzamiento, audio)
+
+PREMIO(titulo original, nombre, festival, categoria, año)
+
+ACTOR(nombre, apellido)
+
+
+
+-------------------------------------------------------------------------- RELACIONES --------------------------------------------------------------------------
+REPRODUCE(username, titulo original, velocidad, idioma, subtitulos, pto de suspenso)
+
+DESCARGA(username, titulo original, cantidad total de tiempo descargado, calidad)
+
+FAVORITO(username, titulo original)
+
+HISTORIAL(username, titulo original, fecha, número)
+
+CALIFICA(username, titulo original, average, personal)
+
+PERMITE_VER(ID, titulo original)
+
+ACTUA_PELI(titulo original, nombre, apellido)
+
+ACTUA_SERIE(titulo original, nombre, apellido)
+
+GANA(titulo original, nombre)
