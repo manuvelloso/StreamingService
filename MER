@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-04-08T13:07:27.052Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="5D-1Hi3F1LlJST5NUQ-R" version="21.1.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-04-08T13:07:37.742Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="Grb6b4c4uvyJK3hJBR3U" version="21.1.4" type="github">
   <diagram name="MER" id="rRmgHoFKnycX_-8nzV18">
     <mxGraphModel dx="3316" dy="2338" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -944,7 +944,7 @@
           <mxGeometry x="1375" y="660" width="60" height="40" as="geometry" />
         </mxCell>
         <mxCell id="4LZFYUHbtiXsKra8Yasm-3" value="&lt;p style=&quot;&quot;&gt;&lt;/p&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;No se permiten más de tres (3) cuentas por abono.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Se ignora la restricción de IP. El usuario ve su contenido sin diferencias en&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;cualquier parte del mundo.&lt;/span&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#F8CECC;strokeColor=#F19C99;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=none;shadow=1;size=8;pointerEvents=1;align=left;" parent="1" vertex="1">
-          <mxGeometry x="-790" y="65" width="230" height="145" as="geometry" />
+          <mxGeometry x="-800" y="-155" width="230" height="145" as="geometry" />
         </mxCell>
         <mxCell id="X_t4JNM2s6cpNC2kyH9I-9" value="&lt;u&gt;ID&lt;/u&gt;" style="ellipse;whiteSpace=wrap;html=1;align=center;strokeColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="-344.64" y="-277.5" width="60" height="30" as="geometry" />
