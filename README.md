@@ -1,5 +1,6 @@
 # StreamingService
 TP final de BD
+
 Este servicio permite enviar y recibir datos en un flujo continuo, a través de una red,
 desde un servidor remoto hasta un dispositivo. El streaming online (o directo) permite
 que se inicie la reproducción de contenido mientras el resto de los datos todavía se
