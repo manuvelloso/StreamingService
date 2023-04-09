@@ -1,54 +1,58 @@
 -------------------------------------------------------------------------- ENTIDADES --------------------------------------------------------------------------
-CUENTA(cuentaID, email, contraseña, tarjeta, idioma)
+CUENTA(email, contraseña, tarjeta, idioma) // Se asumen que cada email puede tener solo una cuenta
 
-USUARIO(username, mobilephone)
+USUARIO(username, mobilephone, bool niño)
 
-DISPOSITIVO(dispID, nombre, modelo, red_wifi)
+DISPOSITIVO(num_serie, nombre, modelo, red_wifi)
 
-PELI(titulo_original, titulo_castellano, titulo_ingles, subtitulado, audio, duracion, año_lanzamiento, director, genero, productor, calificación, calificación_salida) 
+PELI(titulo_original, titulo_castellano, titulo_ingles, subtitulado, audio, duracion, año_lanzamiento, director, genero, productor, calificación_salida, calificacion_average) 
 
-SERIE(titulo_original, titulo_castellano, titulo_inglés, sutitulado, audio, director, genero, productor, calificación, calificación_salida, bool mini)
+SERIE(titulo_original, titulo_castellano, titulo_inglés, sutitulado, audio, director, genero, productor, calificación_salida, calificación_average, bool mini)
 
-TEMPORADA(numeroTEMP, año_lanzamiento, cant_capítulos, bool final)
+TEMPORADA(numero, año_lanzamiento, cant_capítulos, bool final)
 
-CAPÍTULO(numeroCAP, tituloCAP, duracion)
+CAPÍTULO(numero, titulo, duracion)
 
-DOCUMENTAL(titulo_original, director, genero, calificacion, tema, duracion, subtitulado, año_lanzamiento, audio)
+DOCUMENTAL(titulo_original, director, genero, tema, duracion, subtitulado, año_lanzamiento, audio, calificación_average)
 
-PREMIO(titulo_original, nombre, festival, categoria, año)
+PREMIO(festival)
 
 ACTOR(nombre, apellido)
 
 -------------------------------------------------------------------------- RELACIONES --------------------------------------------------------------------------
 
-ABONA(cuentaID, username, factura, fechaVTO, fechaPAGO, formaPAGO, monto, bool año_adelantado, bool descuento)
+ABONA(email, username, factura, fechaVTO, fechaPAGO, formaPAGO, monto, bool año_adelantado)
 
-ASOCIAN(cuentaID, dispID)
+ASOCIAN(email, num_serie)
 
-WATCHPARTY(username, username, bool autorización) // ROLES
+WATCHPARTY(username1, username2, bool autorización) // ROLES
 
-CASTING(dispID, dispID, bool reconocido) // ROLES
+CASTING(num_serie1, num_serie2, bool reconocido) // ROLES
 
-POSEE(username, dispID)
+POSEE(username, num_serie)
 
 REPRODUCE(username, titulo_original, velocidad, idioma, subtitulos, pto_suspenso)
 
-DESCARGA(username, titulo_original, total_tiempo_descargado, calidad)
+DESCARGA(username, titulo_original, total_descargado, calidad) // El total descargado es en minutos
 
 FAVORITO(username, titulo_original)
 
-HISTORIAL(username, titulo_original, fecha, número)
+HISTORIAL(username, titulo_original, fecha_visto)
 
-CALIFICA(username, titulo_original, average, personal) // REVISAR
+CALIFICA(username, titulo_original, personal) // personal es la calificacion que le da el usuario al contenido, de manera particular
 
-PERMITE_VER(ID, titulo_original)
+PERMITE_VER(num_serie, titulo_original)
 
-SEGMENTADA(titulo_original, numero)
+SEGMENTADA(titulo_original, numeroTEMP)
 
 CONTIENE(numeroTEMP, numeroCAP, tituloCAP)
 
-ACTUA_PELI(titulo_original, nombre, apellido, bool principal)
+ACTUA_PELI(titulo_original, nombre, apellido, bool principal) // Muestra los actores que trabajaron en películas
 
-ACTUA_SERIE(titulo_original, nombre, apellido, bool principal)
+ACTUA_SERIE(titulo_original, nombre, apellido, bool principal) // Muestra los actores que trabajaron en series
 
-GANA(titulo_original, nombre) // REVISAR
+// Se da por hecho que en los documentales no hay actores
+
+GANA(titulo_original, festival, año, categoria) 
+
+GANA(titulo_original, festival, año, categoria) 
