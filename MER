@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-04-12T11:50:33.824Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="R8RSjmxagufwvG4nhHND" version="21.1.5" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-04-12T12:05:55.853Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="wb3u8TupLyG8TQs3KBvI" version="21.1.5" type="github" pages="2">
   <diagram name="MER" id="rRmgHoFKnycX_-8nzV18">
     <mxGraphModel dx="4027" dy="2815" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -2587,6 +2587,9 @@
             <mxPoint x="370" y="-220" as="sourcePoint" />
             <mxPoint x="366" y="-190" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="yLxVNZfZtMC7nGvcTVRA-0" value="&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;ESTA RELACION 1 A 1 NO ME GUSTAA&lt;/font&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#dae8fc;strokeColor=#6c8ebf;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="Zun5k6afCeiBZiLJw9X2-1">
+          <mxGeometry x="424.5" y="-105.62" width="231" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
