@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-04-12T12:05:55.853Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="wb3u8TupLyG8TQs3KBvI" version="21.1.5" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-04-12T12:18:26.551Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" etag="PvYcZMIpOXdsequS22LR" version="21.1.5" type="github" pages="2">
   <diagram name="MER" id="rRmgHoFKnycX_-8nzV18">
     <mxGraphModel dx="4027" dy="2815" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -1253,7 +1253,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="Copia de MER" id="XMN2fW3la1VK486EDawt">
-    <mxGraphModel dx="2427" dy="1992" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1373" dy="1450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="Zun5k6afCeiBZiLJw9X2-0" />
         <mxCell id="Zun5k6afCeiBZiLJw9X2-1" parent="Zun5k6afCeiBZiLJw9X2-0" />
@@ -1701,7 +1701,7 @@
           <mxGeometry x="304.01" y="47.5" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Zun5k6afCeiBZiLJw9X2-116" value="" style="group" parent="Zun5k6afCeiBZiLJw9X2-83" vertex="1" connectable="0">
-          <mxGeometry x="402" y="-157.5" width="328" height="430" as="geometry" />
+          <mxGeometry x="402" y="-157.5" width="328" height="490" as="geometry" />
         </mxCell>
         <mxCell id="Zun5k6afCeiBZiLJw9X2-117" value="CONTENIDO" style="rounded=0;whiteSpace=wrap;html=1;" parent="Zun5k6afCeiBZiLJw9X2-116" vertex="1">
           <mxGeometry x="55" y="80" width="80" height="50" as="geometry" />
@@ -1791,7 +1791,7 @@
         </mxCell>
         <mxCell id="Zun5k6afCeiBZiLJw9X2-139" value="1..M" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Zun5k6afCeiBZiLJw9X2-138" connectable="0" vertex="1">
           <mxGeometry x="-0.4627" y="2" relative="1" as="geometry">
-            <mxPoint x="1" y="-3" as="offset" />
+            <mxPoint x="-10" y="-2" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Zun5k6afCeiBZiLJw9X2-140" value="&lt;div style=&quot;font-size: 10px;&quot;&gt;multivaluado&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#F8CECC;strokeColor=#F19C99;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=none;shadow=1;size=8;pointerEvents=1;align=center;" parent="Zun5k6afCeiBZiLJw9X2-116" vertex="1">
@@ -1799,6 +1799,9 @@
         </mxCell>
         <mxCell id="Zun5k6afCeiBZiLJw9X2-141" value="&lt;div style=&quot;font-size: 10px;&quot;&gt;Si la serie no terminó, al fin&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;del último capítulo se&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;puede sugerir el&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;adelanto de la próxima temporada&lt;/span&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#F8CECC;strokeColor=#F19C99;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=none;shadow=1;size=8;pointerEvents=1;align=center;" parent="Zun5k6afCeiBZiLJw9X2-116" vertex="1">
           <mxGeometry x="175.01" y="350.63" width="117.99" height="68.75" as="geometry" />
+        </mxCell>
+        <mxCell id="yLxVNZfZtMC7nGvcTVRA-1" value="&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;andrea dijo que esto es una mala idea =&amp;gt; es mejor crear un ID o algo y fue&lt;/font&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#dae8fc;strokeColor=#6c8ebf;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=8;pointerEvents=1;align=center;" vertex="1" parent="Zun5k6afCeiBZiLJw9X2-116">
+          <mxGeometry x="46" y="419.38" width="112" height="70.62" as="geometry" />
         </mxCell>
         <mxCell id="Zun5k6afCeiBZiLJw9X2-142" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="Zun5k6afCeiBZiLJw9X2-83" source="Zun5k6afCeiBZiLJw9X2-89" target="Zun5k6afCeiBZiLJw9X2-117" edge="1">
           <mxGeometry relative="1" as="geometry">
