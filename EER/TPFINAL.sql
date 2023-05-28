@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS ABONO (
   Factura VARCHAR(45) NOT NULL AUTO_INCREMENT,
   FechaVTO DATE NOT NULL,
   PRIMARY KEY (Factura));
-  
+  CHECK ( IF FechaPago IS NULL AND FormaPago NULL) -- VER ESTO!!
 -- -----------------------------------------------------
 -- Table ACTOR
 -- -----------------------------------------------------
