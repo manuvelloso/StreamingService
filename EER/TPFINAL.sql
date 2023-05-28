@@ -444,3 +444,11 @@ CREATE TABLE IF NOT EXISTS GENCON (
   idGenero INT UNSIGNED NOT NULL AUTO_INCREMENT,
   Genero VARCHAR(20) NOT NULL,
   PRIMARY KEY (idGenero));
+  
+-- -----------------------------------------------------
+-- Table MODELO
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS MODELO (
+  idModelo INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  MODELO VARCHAR(10) NOT NULL,
+  PRIMARY KEY (idModelo));
