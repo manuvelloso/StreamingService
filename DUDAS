@@ -1,6 +1,0 @@
-1) Las relaciones pueden tener claves? -> no
-2) Cual sería la clave de PREMIO? Porque para encontrar una pelicula específica se requiere el nombre del premio, la categoria y el año -> premio termino siendo débil
-3) Tenemos nuestras dudas con la relación de actúa... -> termino siendo una relación entre contenido y actor
-4) Los documentales tienen actores? -> si.
-5) Que onda el tema de las sugerencias que hace la plataforma... Lo tenemos que poner en el MER? -> lo pusimos como relación
-6) Que cosas hay que hacer con álgebra relacional? -> las búsquedas
