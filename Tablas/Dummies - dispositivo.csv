@@ -1,0 +1,7 @@
+idDispositivo,Username,DispNom,MarcaDisp,Tipo,Modelo,Wifi
+1,Manu,iPhone de Manu,Apple,celular,alta gama,null
+2,Isa,iPad de Isa,Apple,tablet,alta gama,null
+3,Manu,PC-Manu,Lenovo,PC,alta gama,null
+4,Vicky,S7 de Vicky,Samsung,celular,alta gama,null
+5,Vicky,PC-Vicky,Dell,PC,alta gama,null
+6,Vicky,La tele de VG,Philips,TV,alta gama,null

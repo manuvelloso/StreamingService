@@ -1,0 +1,11 @@
+Factura,Email,Monto,FechaVTO,FechaPago,FormaPago
+1,manuvelloso@gmail.com,2000,2023-01-20,2023-01-15,Tarjeta
+2,vickyguar@yahoo.com,2000,2023-01-20,2023-01-10,Tarjeta
+3,manuvelloso@gmail.com,2500,2023-02-20,2023-02-15,Tarjeta
+4,vickyguar@yahoo.com,2500,2023-02-20,2023-02-10,Tarjeta
+5,manuvelloso@gmail.com,3000,2023-03-20,2023-03-15,Tarjeta
+6,vickyguar@yahoo.com,3000,2023-03-20,2023-03-10,Tarjeta
+7,manuvelloso@gmail.com,3500,2023-04-20,2023-04-15,Tarjeta
+8,vickyguar@yahoo.com,3500,2023-04-20,2023-04-10,Tarjeta
+9,manuvelloso@gmail.com,4000,2023-05-20,null,Tarjeta
+10,vickyguar@yahoo.com,4000,2023-05-20,2023-05-10,Tarjeta
