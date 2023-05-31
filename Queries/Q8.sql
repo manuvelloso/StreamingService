@@ -8,16 +8,15 @@ WITH Deudor AS(
 		abono
 	WHERE
 		FechaPago IS NULL
-		AND MONTH(CURDATE()) = MONTH(FechaVTO)
-		AND YEAR(CURDATE()) = YEAR(FechaVTO)
-		AND DAY(CURDATE()) > DAY(FechaVTO)
+		AND CURDATE() > FechaVTO
 )
 SELECT 
 	Deudor.Email AS Cuenta
-FROM 
+FROM
 	Deudor
     INNER JOIN usuario ON usuario.Email = Deudor.Email
 	INNER JOIN reproduccionencurso ON usuario.Username = reproduccionencurso.Username
+    INNER JOIN historial ON usuario.Username = historial.Username
 WHERE 
-reproduccionencurso.FechaVisto > CURDATE() - 2
+	reproduccionencurso.FechaVisto > CURDATE() - 2
 GROUP BY Cuenta

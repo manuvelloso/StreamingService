@@ -1,9 +1,11 @@
 -- ¿Cuál es la serie que más le gusta a los usuarios de la plataforma?
--- VER
+ 
 SELECT
-	capitulo.NombreSerie AS Serie,
-    sum(contenido.CalifAverage) AS Total
+	capitulo.NombreSerie,
+    avg(contenido.CalifAverage) AS Calificacion -- Esto es un promedio de la califiación de cada capitulo (promedio del promedio)
 FROM
 	contenido
-    INNER JOIN capitulo ON contenido.TiOriginal = capitulo.TiOriginal
-GROUP BY Serie, contenido.CalifAverage
+    INNER JOIN capitulo ON capitulo.TiOriginal = contenido.TiOriginal
+GROUP BY NombreSerie
+ORDER BY Calificacion DESC
+LIMIT 1
