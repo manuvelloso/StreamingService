@@ -66,7 +66,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb_final`.`contenido` (
   `TiOriginal` VARCHAR(40) NOT NULL,
-  `Duracion` INT UNSIGNED NOT NULL,
+  `Duracion` INT UNSIGNED NOT NULL, -- CHECK MENOR A 5
   -- El problema es que una cosa no quita la otra acá...
   `Genero` VARCHAR(30) NOT NULL CHECK(Genero IN ('Acción y aventuras', 'Animé', 'Comedia', 'Documental', 'Drama', 'Fantasía', 'Terror', 'Extranjera', 'Nacional', 'Familiar', 'Misterio', 'Thriller', 'Romance')),
   `Director` VARCHAR(45) NOT NULL,
@@ -80,8 +80,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `mydb_final`.`actua`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb_final`.`actua` (
-  `idActuacion` INT NOT NULL AUTO_INCREMENT,
-  `idActor` INT NOT NULL,
+  `idActuacion` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `idActor` INT UNSIGNED NOT NULL,
   `TiOriginal` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`idActuacion`),
   INDEX `fk_actua_contenido1_idx` (`TiOriginal` ASC) VISIBLE,
@@ -101,8 +101,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `mydb_final`.`audio`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb_final`.`audio` (
-  `idAudio` INT NOT NULL AUTO_INCREMENT,
-  `Audio` VARCHAR(20) NOT NULL,
+  `idAudio` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `Audio` VARCHAR(20) NOT NULL, -- CHECK in ()
   PRIMARY KEY (`idAudio`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
@@ -112,8 +112,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `mydb_final`.`audiocontenido`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb_final`.`audiocontenido` (
-  `idAudioContenido` INT NOT NULL AUTO_INCREMENT,
-  `idAudio` INT NOT NULL,
+  `idAudioContenido` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `idAudio` INT UNSIGNED NOT NULL,
   `TiOriginal` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`idAudioContenido`),
   INDEX `fk_audioContenido_Audio1_idx` (`idAudio` ASC) VISIBLE,
@@ -135,8 +135,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 CREATE TABLE IF NOT EXISTS `mydb_final`.`usuario` (
   `Username` varchar(20) NOT NULL,
   `Email` varchar(30) NOT NULL CHECK(Email LIKE '%@%'),
-  `Telefono` varchar(10) NOT NULL,
-  `FechaNac` date NOT NULL,
+  `Telefono` varchar(10) NOT NULL, 
+  `FechaNac` date NOT NULL, --FechaNac<CURDATE() AND FechaNac>1910
   PRIMARY KEY (`Username`),
   KEY `fk_usuario_cuenta1_idx` (`Email`),
   CONSTRAINT `fk_usuario_cuenta1` FOREIGN KEY (`Email`) REFERENCES `cuenta` (`Email`)
@@ -148,7 +148,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `mydb_final`.`califica`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb_final`.`califica` (
-  `idCalificacion` INT NOT NULL AUTO_INCREMENT,
+  `idCalificacion` INT unsigned NOT NULL AUTO_INCREMENT,
   `Username` VARCHAR(20) NOT NULL,
   `TiOriginal` VARCHAR(40) NOT NULL,
   `Calificacion` VARCHAR(30) NOT NULL CHECK(Calificacion IN ('no me gustó','me gustó un poco','no me decido', 'me gustó bastante', 'me encantó')),
@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `mydb_final`.`serie` (
   `NombreSerie` VARCHAR(45) NOT NULL,
   `TiEspañol` VARCHAR(45) NOT NULL,
   `TiIngles` VARCHAR(45) NOT NULL,
-  `AnioLanzamiento` INT NOT NULL,
+  `AnioLanzamiento` INT NOT NULL, -- AnioLanzamiento <= YEAR(CURDATE)
   `Productor` VARCHAR(45) NOT NULL,
   `CalifSalida` VARCHAR(20) NULL DEFAULT NULL CHECK(CalifSalida IN ('ATP','+13','+16','+18')),
   PRIMARY KEY (`NombreSerie`))
@@ -205,7 +205,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `mydb_final`.`descarga`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb_final`.`descarga` (
-  `idDescarga` INT NOT NULL AUTO_INCREMENT,
+  `idDescarga` INT unsigned NOT NULL AUTO_INCREMENT,
   `Username` VARCHAR(20) NOT NULL,
   `TiOriginal` VARCHAR(40) NOT NULL,
   `Calidad` VARCHAR(10) NOT NULL CHECK(Calidad IN ('normal','HD','UHD')),
@@ -249,7 +249,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 CREATE TABLE IF NOT EXISTS `mydb_final`.`documental` (
   `TiOriginal` VARCHAR(40) NOT NULL,
   `Tema` VARCHAR(20) NOT NULL,
-  `AnioLanzamiento` INT UNSIGNED NOT NULL,
+  `AnioLanzamiento` INT UNSIGNED NOT NULL, --AnioLazamienot<YEAR(CURDATE())
   PRIMARY KEY (`TiOriginal`),
   CONSTRAINT `fk_documental_contenido1`
     FOREIGN KEY (`TiOriginal`)
@@ -285,7 +285,7 @@ CREATE TABLE IF NOT EXISTS `mydb_final`.`historial` (
   `idHistorial` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `TiOriginal` VARCHAR(40) NOT NULL,
   `Username` VARCHAR(20) NOT NULL,
-  `FechaVisto` DATE NOT NULL,
+  `FechaVisto` DATE NOT NULL, --<= CURDATE()
   `IdiomaAudio` VARCHAR(20) NOT NULL CHECK(IdiomaAudio IN ('original', 'castellano', 'ingles')),
   `IdiomaSubtitulo` VARCHAR(20) NULL DEFAULT NULL CHECK(IdiomaSubtitulo IN (NULL, 'castellano', 'ingles', 'portugues', 'italiano', 'frances')), -- A CHEQUEAR
   PRIMARY KEY (`idHistorial`),
@@ -309,7 +309,7 @@ CREATE TABLE IF NOT EXISTS `mydb_final`.`pelicula` (
   `TiOriginal` VARCHAR(40) NOT NULL,
   `TiIngles` VARCHAR(45) NOT NULL,
   `TiEspaniol` VARCHAR(45) NOT NULL,
-  `AnioLanzamiento` INT UNSIGNED NOT NULL,
+  `AnioLanzamiento` INT UNSIGNED NOT NULL, --<=YEAR(CURDATE())
   `Productor` VARCHAR(45) NOT NULL,
   `CalifSalida` VARCHAR(10) NOT NULL CHECK(CalifSalida IN ('ATP','+13','+16','+18')),
   PRIMARY KEY (`TiOriginal`),
@@ -326,7 +326,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 CREATE TABLE IF NOT EXISTS `mydb_final`.`premio` (
   `idPremio` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `TiOriginal` VARCHAR(40) NOT NULL,
-  `Anio` DATE NOT NULL,
+  `Anio` INT UNSIGNED NOT NULL, --<=YEAR(CURDATE())
   `Categoria` VARCHAR(20) NOT NULL,
   `Festival` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`idPremio`),
@@ -346,8 +346,8 @@ CREATE TABLE IF NOT EXISTS `mydb_final`.`reproduccionencurso` (
   `TiOriginal` VARCHAR(40) NOT NULL,
   `Username` VARCHAR(20) NOT NULL,
   `Velocidad` FLOAT UNSIGNED NOT NULL CHECK(Velocidad IN (0.75,1.0,1.25,1.5)),
-  `PtoSuspenso` INT UNSIGNED NOT NULL,
-  `FechaVisto` DATE NOT NULL,
+  `PtoSuspenso` INT UNSIGNED NOT NULL, --MENOR A LA DURACIÓN DEL CONTENIDO
+  `FechaVisto` DATE NOT NULL, --<= CURDATE()
   `IdiomaAudio` VARCHAR(20) NOT NULL CHECK(IdiomaAudio IN ('original', 'castellano', 'ingles')),
   `IdiomaSubtitulo` VARCHAR(20) NULL DEFAULT NULL CHECK(IdiomaSubtitulo IN (NULL, 'castellano', 'ingles', 'portugues', 'italiano', 'frances')),
   PRIMARY KEY (`idReproduccion`),
@@ -400,7 +400,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb_final`.`casting` (
   `idCasting` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `DispEmisor` INT UNSIGNED NOT NULL,
+  `DispEmisor` INT UNSIGNED NOT NULL, --TIENEN QUE SER SI O SI DISTINTOS
   `DispReceptor` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`idCasting`),
   INDEX `fk_casting_dispositivo1_idx` (`DispEmisor` ASC) VISIBLE,
@@ -424,7 +424,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb_final`.`watchparty` (
   `idWatchparty` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `UserEmisor` VARCHAR(20) NOT NULL,
-  `UserReceptor` VARCHAR(20) NOT NULL,
+  `UserReceptor` VARCHAR(20) NOT NULL, -- TIENEN QUE SER DISNTIOS
   `TiOriginal` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`idWatchparty`),
   INDEX `fk_watchparty_usuario1_idx` (`UserEmisor` ASC) VISIBLE,
