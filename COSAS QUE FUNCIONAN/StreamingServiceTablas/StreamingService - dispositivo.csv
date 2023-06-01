@@ -1,0 +1,201 @@
+idDispositivo,Username,DispNom,MarcaDisp,TipoDisp,RedWifi,Modelo
+1,sschuster0,OnePlus X,Samsung,tablet,CasinoWifi,alta gama
+2,rpaolucci1,Google Pixel 3 XL,Acer,PC,IslandWifi,media gama
+3,fchoake2,Google Pixel XL,Samsung,PC,GuestWifi,media gama
+4,zbagby3,Samsung Galaxy J7,Philips,PC,FamilyWifi,alta gama
+5,ralesin4,OnePlus 6T,Asus,PC,MountainWifi,baja gama
+6,tcowthard5,Huawei P30 Lite,Toshiba,TV,CityWifi,alta gama
+7,gmcgraw6,Motorola Moto G5,Microsoft,TV,BowlingAlleyWifi,media gama
+8,zsuttling7,iPhone X,Nokia,celular,CasinoWifi,media gama
+9,hkinnie8,Motorola Moto E4 Plus,Philips,celular,MountainWifi,baja gama
+10,echmarny9,Google Pixel 3a,HP,PC,MallWifi,media gama
+11,dculmera,Huawei Y9,Asus,TV,SportsWifi,baja gama
+12,hswarbriggb,Samsung Galaxy S7,Panasonic,tablet,HospitalWifi,baja gama
+13,smagsonc,OnePlus 6,Acer,TV,MovieTheaterWifi,baja gama
+14,pguiced,LG G6,HP,celular,MallWifi,alta gama
+15,dsmewinge,OnePlus 2,Microsoft,celular,BowlingAlleyWifi,media gama
+16,hlaurantf,LG Phoenix 4,Toshiba,PC,AquariumWifi,baja gama
+17,egastickeg,Motorola Moto Z3,Asus,TV,SportsWifi,alta gama
+18,tweeklandh,Samsung Galaxy S5,Microsoft,PC,PublicWifi,media gama
+19,mmundwelli,iPhone 11,Asus,PC,NeighborWifi,baja gama
+20,cpuddicombej,Samsung Galaxy S10,Toshiba,TV,HotelWifi,alta gama
+21,wdiboldik,OnePlus 7,Toshiba,tablet,CasinoWifi,baja gama
+22,zpetheridgel,iPhone 5,Acer,TV,RiverWifi,media gama
+23,lkobusm,Samsung Galaxy A50,Apple,PC,RiverWifi,alta gama
+24,marminn,Google Pixel 2,Philips,celular,OfficeWifi,media gama
+25,ebazelleo,OnePlus X,Toshiba,PC,AquariumWifi,alta gama
+26,ndowdap,Google Nexus 5,Lenovo,celular,CityWifi,media gama
+27,ciddisonq,Motorola Moto E5 Plus,Sharp,tablet,MovieTheaterWifi,alta gama
+28,khewesr,Motorola Moto G5 Plus,LG,TV,HotelWifi,alta gama
+29,tantonijevics,Huawei P9,Sharp,celular,HomeWifi,media gama
+30,rmccreeryt,iPhone 6,HP,PC,SportsWifi,baja gama
+31,mchastanetu,OnePlus 5T,Panasonic,celular,AquariumWifi,alta gama
+32,tcarenv,Google Pixel 2,Sony,celular,RestaurantWifi,baja gama
+33,dtollerw,Huawei Nova 3,LG,PC,CommunityWifi,baja gama
+34,sbickerstaffx,Motorola Moto Z3,Apple,PC,MallWifi,baja gama
+35,bluckeny,iPhone 6,Toshiba,TV,LibraryWifi,media gama
+36,vdrippsz,Motorola Moto X4,Samsung,celular,BarWifi,alta gama
+37,evalero10,Samsung Galaxy J7,Sharp,TV,SpaWifi,baja gama
+38,abauduin11,Google Pixel 3a,Philips,PC,ArcadeWifi,baja gama
+39,sconeau12,LG K30,Nokia,celular,MallWifi,media gama
+40,lnadin13,Huawei P30 Lite,Samsung,tablet,PrivateWifi,media gama
+41,dcristofalo14,Huawei P10,LG,TV,ThemeParkWifi,baja gama
+42,ofoye15,Google Pixel 4,Sharp,TV,BoatWifi,media gama
+43,tmorican16,OnePlus 5T,HP,celular,FamilyWifi,media gama
+44,cjeenes17,Huawei Nova 3,HP,tablet,AirportWifi,alta gama
+45,jdobrovsky18,iPhone XS Max,Dell,TV,RestaurantWifi,alta gama
+46,ahughland19,OnePlus 7T Pro,Dell,TV,SportsWifi,media gama
+47,amuskett1a,Motorola Moto Z2 Force,Sony,PC,FamilyWifi,alta gama
+48,nlebourn1b,Samsung Galaxy S9,Dell,TV,GuestWifi,alta gama
+49,rscala1c,LG Phoenix 4,Philips,TV,NeighborWifi,baja gama
+50,lbeart1d,Motorola Moto G7 Power,HP,TV,OfficeWifi,media gama
+51,cgowar1e,iPhone 7,Lenovo,tablet,FriendWifi,media gama
+52,mpackwood1f,Samsung Galaxy S7,Panasonic,tablet,ForestWifi,media gama
+53,lknowlys1g,Google Pixel 3 XL,Nokia,PC,HotelWifi,media gama
+54,cshortt1h,Samsung Galaxy J7,Sharp,tablet,ConcertWifi,alta gama
+55,rdunmuir1i,iPhone 8,Nokia,PC,IslandWifi,media gama
+56,sdavage1j,Motorola Moto E5 Play,Toshiba,tablet,ConcertWifi,alta gama
+57,tschach1k,Huawei P10,Acer,TV,ZooWifi,media gama
+58,cfilipic1l,OnePlus 5T,Samsung,PC,GuestWifi,baja gama
+59,sbromehed1m,LG K20 Plus,Lenovo,PC,HotelWifi,media gama
+60,asaddington1n,OnePlus 5,Apple,TV,BeachWifi,baja gama
+61,rlindborg1o,iPhone 6,HP,tablet,RestaurantWifi,alta gama
+62,nmargram1p,Motorola Moto E4 Plus,Toshiba,tablet,UniversityWifi,media gama
+63,rpepperill1q,Motorola Moto G7 Power,Microsoft,tablet,AirportWifi,alta gama
+64,dros1r,LG Q7 Plus,Acer,celular,MallWifi,alta gama
+65,amoncreiff1s,Samsung Galaxy S8,Sharp,tablet,HospitalWifi,alta gama
+66,dyukhnev1t,Google Pixel 3a XL,Dell,PC,GymWifi,media gama
+67,dameerbeg1u,OnePlus 3,Sony,TV,IslandWifi,alta gama
+68,ncleworth1v,OnePlus 3T,Microsoft,PC,ForestWifi,baja gama
+69,mcarnock1w,iPhone 5c,Asus,tablet,TrainStationWifi,media gama
+70,mstavers1x,LG V20,Nokia,PC,TrainStationWifi,alta gama
+71,ldesavery1y,Google Pixel 3a XL,Toshiba,celular,SpaWifi,media gama
+72,jhoff1z,Motorola Moto X4,Sony,celular,TrainStationWifi,baja gama
+73,aroswarn20,OnePlus 7,Sharp,PC,HotelWifi,alta gama
+74,dsarsons21,Motorola Moto G7 Power,Acer,PC,PublicWifi,baja gama
+75,hcavell22,Samsung Galaxy S10,Sharp,PC,SpaWifi,baja gama
+76,crimes23,Google Pixel XL,Samsung,TV,ArcadeWifi,media gama
+77,dschukert24,Google Pixel 2,Microsoft,celular,ArtGalleryWifi,media gama
+78,avynarde25,OnePlus 6,Toshiba,PC,CampgroundWifi,alta gama
+79,nkinder26,Huawei P8 Lite,Acer,PC,HospitalWifi,alta gama
+80,rpiotrkowski27,Samsung Galaxy S6,LG,TV,CafeWifi,baja gama
+81,oscully28,iPhone 5c,Sony,PC,PublicWifi,alta gama
+82,fhanshaw29,OnePlus 6T,Sony,celular,CountryWifi,baja gama
+83,fdurbann2a,Samsung Galaxy S5,HP,TV,MountainWifi,alta gama
+84,egoudie2b,OnePlus 5T,Apple,PC,TrainStationWifi,media gama
+85,efairrie2c,Samsung Galaxy A70,Sharp,tablet,FriendWifi,media gama
+86,ecoventon2d,LG K30,LG,PC,StadiumWifi,baja gama
+87,bgwinnel2e,LG V20,Sony,tablet,LakeWifi,baja gama
+88,cdenecamp2f,LG G7 ThinQ,Panasonic,celular,ArcadeWifi,baja gama
+89,eblouet2g,Huawei P30 Lite,Samsung,PC,TrainStationWifi,media gama
+90,kbratley2h,Motorola Moto Z3,Samsung,PC,OfficeWifi,alta gama
+91,geaken2i,OnePlus 2,Nokia,TV,ArtGalleryWifi,media gama
+92,tbodicam2j,iPhone 6s,Apple,PC,StadiumWifi,alta gama
+93,ggwillyam2k,LG K30,Philips,PC,RestaurantWifi,alta gama
+94,jleahair2l,Motorola Moto E5 Play,Nokia,tablet,CampgroundWifi,baja gama
+95,ckunath2m,Pixel 3,Acer,TV,CommunityWifi,media gama
+96,mcollingworth2n,LG G6,Dell,celular,BeachWifi,alta gama
+97,djayes2o,Google Pixel,HP,PC,ForestWifi,baja gama
+98,hlecky2p,Samsung Galaxy J7,Dell,TV,FamilyWifi,alta gama
+99,pjepp2q,Samsung Galaxy S9,Sony,TV,ThemeParkWifi,baja gama
+100,hjambrozek2r,Motorola Moto X4,Acer,TV,LakeWifi,alta gama
+101,sdurran2s,LG Q7 Plus,Sony,celular,TrainStationWifi,baja gama
+102,craggatt2t,OnePlus 3,Apple,celular,AquariumWifi,baja gama
+103,lferras2u,Huawei Mate 10 Pro,Apple,celular,RVWifi,alta gama
+104,pducarne2v,Google Pixel 3a XL,Toshiba,tablet,MallWifi,alta gama
+105,dbeddingham2w,Google Pixel 3 XL,Sony,TV,BeachWifi,alta gama
+106,zsamuel2x,LG K20 Plus,Sony,celular,ArtGalleryWifi,baja gama
+107,ogates2y,LG Phoenix 4,Samsung,TV,ResortWifi,baja gama
+108,acordingly2z,Huawei Honor 10,Nokia,tablet,ResortWifi,alta gama
+109,cvanbrugh30,OnePlus 7T,Samsung,TV,GuestWifi,alta gama
+110,hweiser31,Huawei Honor 10,Nokia,TV,PublicWifi,alta gama
+111,fsheering32,iPhone 6,Asus,celular,CampgroundWifi,media gama
+112,skupisz33,iPhone 5s,Lenovo,tablet,CasinoWifi,alta gama
+113,jphillput34,Samsung Galaxy Note 9,Sony,celular,MuseumWifi,media gama
+114,jklimpt35,LG V30,Nokia,PC,MovieTheaterWifi,baja gama
+115,kglendinning36,Huawei P20 Pro,Sharp,tablet,LibraryWifi,media gama
+116,mizon37,Samsung Galaxy S10,Philips,TV,HomeWifi,media gama
+117,gelstow38,LG G6,Philips,tablet,ConcertWifi,baja gama
+118,gdelabarre39,OnePlus 5,LG,PC,IslandWifi,alta gama
+119,jbohlens3a,LG Phoenix 4,Asus,TV,CasinoWifi,alta gama
+120,mtanti3b,Motorola Moto E5 Plus,Acer,PC,LakeWifi,baja gama
+121,dnelane3c,OnePlus 3,Samsung,celular,UniversityWifi,baja gama
+122,vstraun3d,Motorola Moto G5,Toshiba,tablet,PublicWifi,alta gama
+123,tcaseri3e,Motorola Moto G6,Toshiba,TV,HomeWifi,alta gama
+124,dtitman3f,OnePlus 7T,Sony,TV,TrainStationWifi,media gama
+125,ffeathersby3g,Google Pixel 3 XL,Panasonic,tablet,CommunityWifi,baja gama
+126,ktousy3h,OnePlus One,Asus,tablet,SpaWifi,media gama
+127,cbatthew3i,Google Pixel XL,Sharp,PC,HomeWifi,alta gama
+128,yberling3j,Huawei Nova 3,Nokia,tablet,CountryWifi,alta gama
+129,edanslow3k,LG Stylo 5,Apple,celular,AquariumWifi,alta gama
+130,chartas3l,Google Pixel 2,Microsoft,celular,FriendWifi,alta gama
+131,plumbly3m,Google Pixel 3a,Philips,celular,OfficeWifi,baja gama
+132,wpoacher3n,LG Phoenix 4,Philips,tablet,GuestWifi,media gama
+133,bhalpin3o,Huawei P10,Panasonic,celular,BarWifi,media gama
+134,vhardwin3p,Samsung Galaxy S8,Toshiba,PC,NeighborWifi,alta gama
+135,mgraddon3q,Google Pixel 3 XL,Panasonic,celular,ResortWifi,media gama
+136,cdumberrill3r,Huawei P9,Samsung,PC,CafeWifi,media gama
+137,gdioniso3s,Huawei P20 Pro,Philips,celular,ZooWifi,alta gama
+138,bgallego3t,OnePlus 3,Philips,tablet,HospitalWifi,media gama
+139,alarkby3u,Motorola Moto G6,Sharp,celular,ArtGalleryWifi,media gama
+140,glevitt3v,iPhone X,Sharp,PC,HotelWifi,baja gama
+141,nricharson3w,OnePlus 2,Lenovo,tablet,FamilyWifi,media gama
+142,sjonin3x,Huawei P30 Lite,Dell,PC,GymWifi,alta gama
+143,ffero3y,iPhone 5s,Acer,celular,IslandWifi,alta gama
+144,ilinkie3z,iPhone 11,Samsung,TV,ResortWifi,baja gama
+145,pgorry40,iPhone XS,Panasonic,PC,RVWifi,media gama
+146,gswadlin41,Huawei Honor 9,Toshiba,PC,UniversityWifi,media gama
+147,cdown42,Samsung Galaxy S10,Apple,TV,BeachWifi,alta gama
+148,bsharrock43,Google Nexus 4,HP,PC,CasinoWifi,media gama
+149,mcroose44,iPhone 5s,Panasonic,PC,BowlingAlleyWifi,media gama
+150,wchamberlen45,Huawei P20 Pro,Acer,TV,FriendWifi,baja gama
+151,mcoughlan46,Huawei Y9,Lenovo,celular,CafeWifi,alta gama
+152,drumble47,Motorola Moto G6,Apple,celular,CasinoWifi,baja gama
+153,jmanvelle48,iPhone 6s,Sharp,celular,AquariumWifi,baja gama
+154,wblindmann49,Samsung Galaxy S4,Lenovo,TV,FriendWifi,baja gama
+155,kdonnellan4a,Huawei Mate 9,Sony,PC,SpaWifi,baja gama
+156,scorp4b,OnePlus X,Panasonic,celular,MuseumWifi,media gama
+157,bfasler4c,Google Pixel 2,Nokia,celular,CampgroundWifi,media gama
+158,mnend4d,Samsung Galaxy A20,Panasonic,tablet,GuestWifi,alta gama
+159,rrochford4e,Motorola Moto G6,HP,TV,TrainStationWifi,media gama
+160,jholgan4f,Samsung Galaxy S10,Samsung,celular,RestaurantWifi,alta gama
+161,wleamon4g,LG K20 Plus,Lenovo,TV,NeighborWifi,baja gama
+162,mhedau4h,Samsung Galaxy S4,Philips,PC,OfficeWifi,alta gama
+163,gklass4i,Samsung Galaxy Note 9,Samsung,tablet,CafeWifi,baja gama
+164,ngreaterex4j,Motorola Moto G4 Plus,Lenovo,PC,LakeWifi,media gama
+165,pbrien4k,Motorola Moto G5 Plus,Toshiba,celular,ForestWifi,alta gama
+166,ebilson4l,Motorola Moto E5 Plus,Philips,tablet,TrainStationWifi,baja gama
+167,cballham4m,LG K30,Philips,tablet,UniversityWifi,baja gama
+168,gscheu4n,iPhone X,Sharp,TV,ThemeParkWifi,alta gama
+169,esaipy4o,Motorola Moto G6,Microsoft,tablet,GuestWifi,media gama
+170,mbullion4p,OnePlus 5,LG,PC,ResortWifi,media gama
+171,lsaiens4q,Samsung Galaxy A50,Lenovo,PC,LibraryWifi,media gama
+172,dlackmann4r,OnePlus Oneplus 7 Pro,LG,celular,ZooWifi,baja gama
+173,rbailes4s,Huawei Mate 9,Apple,TV,SportsWifi,media gama
+174,dchessman4t,Samsung Galaxy Note 8,Sharp,PC,ParkWifi,media gama
+175,hainley4u,Google Pixel 4,Acer,PC,HomeWifi,media gama
+176,ftomasino4v,Samsung Galaxy S4,Asus,celular,HospitalWifi,media gama
+177,nbaldacco4w,OnePlus One,Sony,tablet,GuestWifi,alta gama
+178,aradke4x,OnePlus 7,Asus,celular,ResortWifi,baja gama
+179,rsingers4y,Huawei Y9,Asus,PC,OfficeWifi,media gama
+180,agores4z,LG G7 ThinQ,HP,TV,AquariumWifi,baja gama
+181,wabeau50,LG Stylo 5,Lenovo,TV,RiverWifi,alta gama
+182,rlowater51,Google Pixel 3 XL,Asus,TV,SpaWifi,baja gama
+183,acuel52,LG Q7 Plus,Samsung,celular,BusStationWifi,media gama
+184,lshippard53,Samsung Galaxy S4,HP,tablet,UniversityWifi,media gama
+185,jjakubovski54,Motorola Moto Z3,LG,celular,BowlingAlleyWifi,media gama
+186,bimpett55,Samsung Galaxy S10,Lenovo,PC,BowlingAlleyWifi,baja gama
+187,etownrow56,LG Stylo 5,Acer,tablet,MovieTheaterWifi,baja gama
+188,fhaslock57,OnePlus 6T,Asus,TV,CommunityWifi,media gama
+189,jnorcliff58,OnePlus 6,Samsung,TV,MallWifi,alta gama
+190,tfancett59,OnePlus 7T Pro,Microsoft,tablet,ThemeParkWifi,baja gama
+191,pdik5a,LG Aristo 2,Philips,TV,BoatWifi,alta gama
+192,emcfadzean5b,Google Pixel XL,Apple,PC,NeighborWifi,baja gama
+193,gharkness5c,LG Stylo 5,Sony,PC,ConcertWifi,alta gama
+194,atenman5d,LG Stylo 4,Panasonic,tablet,FamilyWifi,media gama
+195,osterzaker5e,LG K20 Plus,Microsoft,tablet,ThemeParkWifi,baja gama
+196,gmussolini5f,Samsung Galaxy S7,Philips,PC,HomeWifi,media gama
+197,barmour5g,Google Pixel 2,Microsoft,TV,ArtGalleryWifi,baja gama
+198,igreaves5h,Huawei P9,Apple,PC,ClubWifi,baja gama
+199,mleakner5i,Samsung Galaxy S6,Dell,TV,ThemeParkWifi,alta gama
+200,lolliff5j,Huawei P30 Lite,Philips,tablet,RestaurantWifi,alta gama
