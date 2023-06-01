@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-01T21:40:47.102Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="GfsLSF0DV-0tcq2ekH0I" version="21.3.6" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-06-01T21:41:07.282Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="EMuGrL1-PrtU3wJKz74G" version="21.3.6" type="github" pages="2">
   <diagram name="MER Guarnieri - Velloso" id="XMN2fW3la1VK486EDawt">
     <mxGraphModel dx="1947" dy="1697" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -1241,8 +1241,8 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram name="Copia de MER Guarnieri - Velloso" id="Rv25M2ItdWumpLifQGOh">
-    <mxGraphModel dx="6155" dy="3281" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <diagram name="MER Guarnieri - Velloso NUEVO" id="Rv25M2ItdWumpLifQGOh">
+    <mxGraphModel dx="3491" dy="2225" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="X9i4_WSpEuV2tP39xlSB-0" />
         <mxCell id="X9i4_WSpEuV2tP39xlSB-1" parent="X9i4_WSpEuV2tP39xlSB-0" />
