@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-21T10:55:48.700Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="43teaRlGYdZfafS_NeOY" version="21.5.0" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-06-21T10:55:56.959Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="Nid_ittIOzd7W6jpJfnF" version="21.5.0" type="github" pages="2">
   <diagram name="MER Guarnieri - Velloso" id="XMN2fW3la1VK486EDawt">
     <mxGraphModel dx="1947" dy="1697" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -1434,7 +1434,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="X9i4_WSpEuV2tP39xlSB-42" value="&lt;div style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;nombre: &quot;Iphone de Manu&quot; &quot;Victoria&#39;s A52&quot; por ejemplo&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#f8cecc;strokeColor=#b85450;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=8;pointerEvents=1;align=center;fontSize=10;" parent="X9i4_WSpEuV2tP39xlSB-1" vertex="1">
-          <mxGeometry x="151.5" y="-500" width="145" height="45" as="geometry" />
+          <mxGeometry x="166.47" y="-440" width="145" height="45" as="geometry" />
         </mxCell>
         <mxCell id="X9i4_WSpEuV2tP39xlSB-43" value="red wifi" style="ellipse;whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;rounded=0;" parent="X9i4_WSpEuV2tP39xlSB-1" vertex="1">
           <mxGeometry x="46.97999999999999" y="-435" width="50" height="30" as="geometry" />
