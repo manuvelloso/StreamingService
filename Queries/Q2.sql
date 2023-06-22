@@ -4,10 +4,13 @@ SELECT
 	DATE_FORMAT(historial.FechaVisto, '%Y-%m') AS Mes,
 	historial.TiOriginal AS Nombre
 FROM
-	historial
-	INNER JOIN pelicula ON historial.TiOriginal = pelicula.TiOriginal
+	reproduccionencurso
+	INNER JOIN pelicula ON reproduccionencurso.TiOriginal = pelicula.TiOriginal
+	INNER JOIN contenido ON contenido.TiOriginal = pelicula.TiOriginal
 WHERE
-	historial.FechaVisto >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+	reproduccionencurso.FechaVisto >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH
+	AND reproduccionencurso.PtoSuspenso = contenido.Duracion
+	)
 )
 
 SELECT Mes, Nombre
