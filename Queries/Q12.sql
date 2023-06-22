@@ -6,12 +6,6 @@ WITH Actores AS (
 	FROM
 		actua
 		INNER JOIN reproduccionencurso ON actua.TiOriginal = reproduccionencurso.TiOriginal
-	UNION
-    SELECT
-		idActor
-	FROM
-		actua
-		INNER JOIN historial ON actua.TiOriginal = historial.TiOriginal
 )
 
 SELECT
