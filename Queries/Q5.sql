@@ -3,7 +3,7 @@
 SELECT 
 	TiOriginal AS Documentales
 FROM 
-	documental
+	documental INNER JOIN contenido ON documental.TiOriginal = contenido.TiOriginal
 WHERE 
 	AnioLanzamiento BETWEEN 2020 AND 2022 AND Tema LIKE "%COVID%" -- YEAR(AnioLanzamiento) BETWEEEN 2020 AND 2022 
 
