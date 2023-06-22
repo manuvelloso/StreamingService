@@ -3,7 +3,7 @@
 SELECT TiOriginal, COUNT(TiOriginal) as cant
 FROM reproduccionencurso 
 INNER JOIN documental ON documental.TiOriginal = reproduccionencurso.TiOriginal
-INNER JOIN contenido ON contenido.TiOriginal = pelicula.TiOriginal
+INNER JOIN contenido ON contenido.TiOriginal = documental.TiOriginal
 WHERE(
 	reproduccionencurso.PtoSuspenso < contenido.Duracion
 	AND reproduccionencurso.FechaVisto < CURDATE() - 365
