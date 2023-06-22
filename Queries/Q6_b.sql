@@ -9,15 +9,15 @@ WITH UsuariosGT AS (
 		GOT.IdiomaAudio
 	FROM (
 		SELECT
-			historial.Username,
-			historial.IdiomaAudio
+			reproduccionencurso.Username,
+			reproduccionencurso.IdiomaAudio
 		FROM 
-			historial
-		INNER JOIN capitulo ON historial.TiOriginal = capitulo.TiOriginal 
+			reproduccionencurso
+		INNER JOIN capitulo ON reproduccionencurso.TiOriginal = capitulo.TiOriginal 
 		WHERE 
 			NombreSerie LIKE 'Game of Thrones'
-			AND YEAR(historial.FechaVisto) = 2023
-		GROUP BY historial.Username, historial.IdiomaAudio
+			AND YEAR(reproduccionencurso.FechaVisto) = 2023
+		GROUP BY reproduccionencurso.Username, reproduccionencurso.IdiomaAudio
     ) AS GOT
 	INNER JOIN usuario ON GOT.Username = usuario.Username
 )
