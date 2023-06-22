@@ -4,13 +4,13 @@ SELECT
 		usuario.Telefono
 	FROM (
 		SELECT
-			historial.Username
+			reproduccionencurso.Username
 		FROM 
 			historial
-		INNER JOIN capitulo ON historial.TiOriginal = capitulo.TiOriginal 
+		INNER JOIN capitulo ON reproduccionencurso.TiOriginal = capitulo.TiOriginal 
 		WHERE 
 			NombreSerie LIKE 'Game of Thrones'
-			AND YEAR(historial.FechaVisto) = 2023
+			AND YEAR(reproduccionencurso.FechaVisto) = 2023
 		GROUP BY historial.Username
     ) AS GOT
 	INNER JOIN usuario ON GOT.Username = usuario.Username
