@@ -451,7 +451,7 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `califica_BEFORE_INSERT` BEFORE INSERT
     FROM califica 
     INNER JOIN reproduccionencurso ON califica.TiOriginal = reproduccionencurso.TiOriginal
     INNER JOIN contenido ON contenido.TiOriginal = reproduccionencurso.TiOriginal
-    WHERE(califica.Username = NEW.Username AND califica.TiOriginal = NEW.califica.TiOriginal);
+    WHERE(califica.Username = NEW.Username AND califica.TiOriginal = NEW.TiOriginal);
     
     -- NIÑOS --
     SELECT FechaNac INTO fechita
@@ -540,7 +540,7 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `califica_AFTER_INSERT` AFTER INSERT O
     -- Actualizar la calificación promedio en la tabla de contenido
     UPDATE contenido
     SET CalifAverage = NuevaCal
-    WHERE TiOriginal = NEW.TiOriginal;
+    WHERE CalifAverage.TiOriginal = NEW.TiOriginal;
 END$$
 
 /*
@@ -631,7 +631,7 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `descarga_BEFORE_INSERT` BEFORE INSERT
 	-- YA LO DESCARGÓ --
 	SELECT TiOriginal INTO titulito
 	FROM descarga
-	WHERE (Username = NEW.Username AND TiOriginal = NEW.TiOriginal);
+	WHERE (descarga.Username = NEW.Username AND descarga.TiOriginal = NEW.TiOriginal);
 	
 	-- ABONO VENCIDO --
 	SELECT FechaVTO INTO VTO
@@ -643,7 +643,7 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `descarga_BEFORE_INSERT` BEFORE INSERT
 	-- NIÑOS --
 	SELECT FechaNac INTO fechita
 	FROM descarga INNER JOIN usuario ON descarga.Username = usuario.Username
-	WHERE Username = NEW.Username;
+	WHERE descarga.Username = NEW.Username;
 		
 	SELECT CalifSalida INTO califi
 	FROM 
@@ -665,7 +665,7 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `descarga_BEFORE_INSERT` BEFORE INSERT
 	INNER JOIN capitulo ON capitulo.TiOriginal = descarga.TiOriginal
 	INNER JOIN serie ON serie.NombreSerie = capitulo.NombreSerie) 
 	) as e
-	WHERE(TiOriginal = NEW.TiOriginal);
+	WHERE(capitulo.TiOriginal = NEW.TiOriginal);
 	
 	-- Si ya lo descargó
 	IF titulito IS NOT NULL THEN
@@ -688,7 +688,7 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `descarga_BEFORE_INSERT` BEFORE INSERT
 						SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El dispositivo donde se quiso descargar no es de alta gama';
 	             			   ELSE
 						-- Si el dispositivo no le pertenece a la persona
-	                    			IF NEW.descarga.idDispositivo NOT IN (SELECT idDispositivo FROM dispositivo WHERE dispositivo.Username = NEW.descarga.Username) THEN
+	                    			IF NEW.idDispositivo NOT IN (SELECT idDispositivo FROM dispositivo WHERE dispositivo.Username = NEW.descarga.Username) THEN
 							SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El dispositivo no le pertenece al usuario';
 	                    			END IF;
 	                		END IF;
@@ -773,14 +773,14 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `favorito_BEFORE_INSERT` BEFORE INSERT
     INNER JOIN capitulo ON capitulo.TiOriginal = favorito.TiOriginal
     INNER JOIN serie ON serie.NombreSerie = capitulo.NombreSerie) 
     ) as e
-    WHERE(TiOriginal = NEW.TiOriginal);
+    WHERE(capitulo.TiOriginal = NEW.TiOriginal);
     
     -- ABONO VENCIDO --
 	SELECT FechaVTO INTO VTO
 	FROM favorito 
 	INNER JOIN usuario ON favorito.Username = usuario.Username
 	INNER JOIN abono ON usuario.Email = abono.Email
-	WHERE usuario.Username = NEW.usuario.Username
+	WHERE usuario.Username = NEW.Username
 	GROUP BY Email;
 	
     -- si ya hay 10 títulos en favoritor
@@ -845,13 +845,13 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `reproduccionencurso_BEFORE_INSERT` BE
     FROM reproduccionencurso 
     INNER JOIN descarga ON reproduccionencurso.TiOriginal = descarga.TiOriginal
     INNER JOIN usuario ON usuario.Username = descarga.Username
-    WHERE reproduccionencurso.Username = NEW.reproduccionencurso.Username;
+    WHERE reproduccionencurso.Username = NEW.Username;
     
     -- WIFI --
     SELECT Wifi INTO wifi_
     FROM reproduccionencurso 
     INNER JOIN dispositivo ON reproduccioencurso.idDisopositivo = dispositivo.idDispositivo
-    WHERE reproduccioencurso.idDisopositivo = NEW.reproduccioencurso.idDisopositivo;
+    WHERE reproduccioencurso.idDisopositivo = NEW.idDisopositivo;
     
     -- ABONO VENCIDO --
     SELECT FechaVTO INTO VTO
@@ -886,7 +886,7 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `reproduccionencurso_BEFORE_INSERT` BE
     INNER JOIN capitulo ON capitulo.TiOriginal = reproduccionencurso.TiOriginal
     INNER JOIN serie ON serie.NombreSerie = capitulo.NombreSerie) 
     ) as e
-    WHERE(TiOriginal = NEW.TiOriginal);
+    WHERE(capitulo.TiOriginal = NEW.TiOriginal);
 
 -- Si no pagó
 IF CURDATE() >= VTO + 5 THEN
@@ -938,7 +938,7 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `reproduccionencurso_BEFORE_DELETE` BE
 	
 	SELECT duracion INTO duracioncita
 	FROM reproduccionencurso INNER JOIN contenido ON reproduccionencurso.TiOriginal = contenido.TiOriginal
-	WHERE reproduccionencurso.TiOriginal = OLD.reproduccionencurso.TiOriginal;
+	WHERE reproduccionencurso.TiOriginal = OLD.TiOriginal;
 	
 	
 	IF duracioncita >= puntito THEN
@@ -1025,7 +1025,7 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `watchparty_BEFORE_INSERT` BEFORE INSE
 	INNER JOIN capitulo ON capitulo.TiOriginal = reproduccionencurso.TiOriginal
 	INNER JOIN serie ON serie.NombreSerie = capitulo.NombreSerie) 
 	) as e
-	WHERE(idReproduccion = NEW.idReproduccion);
+	WHERE(reproduccionencurso.idReproduccion = NEW.idReproduccion);
 	
 	IF user1 LIKE user2 THEN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No puedes hacer watchparty con vos mismo';
@@ -1054,7 +1054,7 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `watchparty_AFTER_INSERT` AFTER INSERT
 	SELECT TiOriginal, Velocidad, PtoSuspenso, FechaVisto, IdiomaAudio, IdiomaSubtitulo INTO titulo, v, ps, fv, ia, isub
 	FROM watchparty
 	INNER JOIN reproduccionencurso ON watchparty.idReproduccion = reproduccionencurso.idReproduccion
-	WHERE(NEW.watchparty.idReproduccion = watchparty.idReproduccion);
+	WHERE(NEW.idReproduccion = watchparty.idReproduccion);
 	
 	INSERT INTO Reproduccionencurso (TiOriginal, Username, Velocidad, PtoSuspenso, FechaVisto, IdiomaAudio, IdiomaSubtitulo)
 	VALUES (titulo, UserReceptor, v, ps, fv, ia, isub);
