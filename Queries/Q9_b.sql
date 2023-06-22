@@ -1,5 +1,5 @@
 -- Listar cuál es el contenido más visto en watchparty para segmento entre 20 y 25 años
-SELECT *
+SELECT TiOriginal, count(TiOriginal) AS cant
 FROM 
 (
 (SELECT TiOriginal, usuario.Username, usuario.FechaNac FROM 
@@ -15,4 +15,7 @@ INNER JOIN reproduccionencurso ON watchparty.idReproduccion = reproduccionencurs
 INNER JOIN usuario ON usuario.Username = watchparty.UserReceptor)
 )
 WHERE(YEAR(CURDATE() - FechaNac) BETWEEN 20 AND 25)
+GROUP BY TiOriginal
+ORDER BY cant
+LIMIT 1
 
