@@ -137,9 +137,6 @@ CREATE TABLE IF NOT EXISTS `mydb_final`.`usuario` (
   )
   ENGINE = InnoDB
   DEFAULT CHARACTER SET = utf8mb3;
-  
-  -- ALTER TABLE usuario
-  -- ADD CONSTRAINT `Const_usuario_Email` CHECK (Email LIKE '%@%');
 
 -- -----------------------------------------------------
 -- Table `mydb_final`.`califica`
@@ -435,28 +432,13 @@ ENGINE = InnoDB;
 DELIMITER $$
 USE `mydb_final`$$
 
-/*CREATE DEFINER=`root`@`localhost` TRIGGER `abono_AFTER_INSERT` AFTER INSERT ON `abono` FOR EACH ROW BEGIN
- -- Si pagó con 'Comprobante'
- DECLARE formita VARCHAR(45);
- SELECT NEW.FormaPago INTO formita;
-
- IF formita LIKE 'Comprobante' THEN
-   SET MESSAGE_TEXT = 'Generando comprobante';
- END IF;
-
-END$$**/
-
-/* CREATE DEFINER=`root`@`localhost` TRIGGER `abono_AFTER_UPDATE` AFTER UPDATE ON `abono` FOR EACH ROW BEGIN
-
--- Siempre que se modifique la tabla abono ==> chequeo los deudores
--- Si el usuario no pagó, se le avisa la futura cancelación del servicio
-IF FechaVTO < CURDATE() AND FechaPago IS NULL THEN
-	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Futura cancelacion del servicio de streaming ante la falta de pago\nSe otorgan 5 días para la cancelacion de la deuda';
-END IF;
-
-END$$*/
-
--- CALIFICA
+/*
+--CALIFICA: before instert--------------------------------
+- El usuario tiene que haber visto lo que va a calificar 
+- Un niño no puede calificar contenido que no sea ATP    
+- El usuario no puede calificar si tiene el abono vencido
+----------------------------------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `califica_BEFORE_INSERT` BEFORE INSERT ON `califica` FOR EACH ROW BEGIN
     DECLARE fechita DATE;
     DECLARE califi VARCHAR(10);
@@ -498,7 +480,6 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `califica_BEFORE_INSERT` BEFORE INSERT
     INNER JOIN usuario ON califica.Username = usuario.Username
     INNER JOIN abono ON usuario.Email = abono.Email
     WHERE usuario.Username = NEW.Username
-    GROUP BY usuario.Email;
 
     -- Si el abono está vencido
     IF CURDATE() >= VTO + INTERVAL 5 DAY THEN
@@ -508,37 +489,44 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `califica_BEFORE_INSERT` BEFORE INSERT
         -- Si es niño
         IF YEAR(CURDATE()) - YEAR(fechita) < 13 AND califi NOT LIKE 'ATP' THEN
             SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Restricción de menor de edad aplicada sobre este título';
-		ELSE
-			IF PtoSuspenso <> Duracioncita THEN 
-				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No podes calificar algo que todavía no viste :P';
-            ELSE
-				-- Si no: lo puedo ingresar!
-				IF NEW.Calificacion LIKE 'no me gusto' THEN
-					SET NEW.Valor = 1;
-				END IF;
-				
-				IF NEW.Calificacion LIKE 'no me decido' THEN
-					SET NEW.Valor = 2;
-				END IF;
-				
-				IF NEW.Calificacion LIKE 'me gusto un poco' THEN
-					SET NEW.Valor = 3;
-				END IF;
-				
-				IF NEW.Calificacion LIKE 'me gusta bastante' THEN
-					SET NEW.Valor = 4;
-				END IF;
-				
-				IF NEW.Calificacion LIKE 'me encanto' THEN
-					SET NEW.Valor = 5;
-				END IF;
+	ELSE
+		-- Si no terminó de ver
+		IF PtoSuspenso <> Duracioncita THEN 
+	 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No podes calificar algo que todavía no terminaste de ver :P';
+            	ELSE
+			-- Si no: lo puedo ingresar!
+			IF NEW.Calificacion LIKE 'no me gusto' THEN
+				SET NEW.Valor = 1;
 			END IF;
+			
+			IF NEW.Calificacion LIKE 'no me decido' THEN
+				SET NEW.Valor = 2;
+			END IF;
+				
+			IF NEW.Calificacion LIKE 'me gusto un poco' THEN
+				SET NEW.Valor = 3;
+			END IF;
+				
+			IF NEW.Calificacion LIKE 'me gusta bastante' THEN
+				SET NEW.Valor = 4;
+			END IF;
+				
+			IF NEW.Calificacion LIKE 'me encanto' THEN
+				SET NEW.Valor = 5;
+			END IF;
+		END IF;
         END IF;
     END IF;
 END$$
 
+/*
+--CALIFICA: after insert----------------------------------
+- Se debe modificar la calificacion average del contenido
+----------------------------------------------------------
+*/	
 CREATE DEFINER=`root`@`localhost` TRIGGER `califica_AFTER_INSERT` AFTER INSERT ON `califica` FOR EACH ROW BEGIN
-	DECLARE CalTotal INT UNSIGNED;
+    -- Variables
+    DECLARE CalTotal INT UNSIGNED;
     DECLARE CantCal INT UNSIGNED;
     DECLARE NuevaCal FLOAT;
     
@@ -555,57 +543,49 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `califica_AFTER_INSERT` AFTER INSERT O
     WHERE TiOriginal = NEW.TiOriginal;
 END$$
 
--- CAPÍTULO 
-/*CREATE DEFINER=`root`@`localhost` TRIGGER `capitulo_AFTER_INSERT` AFTER INSERT ON `capitulo` FOR EACH ROW BEGIN
-
-DECLARE nt INT UNSIGNED;
-
-SELECT NumTemp INTO nt
-FROM capitulo INNER JOIN serie
-WHERE capitulo.NombreSerie = NEW.serie.NombreSerie
-GROUP BY NombreSerie;
-
--- si es la ultima temporada -> avisar
-IF nt = NEW.serie.CantTemporadas THEN
- SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'FINAL SEASON!!!';
-END IF;
-
-END$$*/
-
--- CASTING
+/*
+--CASTING: before insert---------------------------------------------------------------
+- los dispositivos que se van a castear tienen que estar conectados a la misma red wifi
+- no se puede castear un dispositivo consigo mismo
+---------------------------------------------------------------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `casting_BEFORE_INSERT` BEFORE INSERT ON `casting` FOR EACH ROW BEGIN
--- after insert en casting -> update reproducción en curso (por el tema de la velocidad)
-
-DECLARE W1 VARCHAR(20);
-DECLARE W2 VARCHAR(20);
-DECLARE id1 INT UNSIGNED;
-DECLARE id2 INT UNSIGNED;
-
-SELECT idDispositivo INTO id1
-FROM casting INNER JOIN dispositivo ON casting.DispEmisor = dispositivo.idDispositivo
-WHERE casting.DispEmisor = NEW.DispEmisor;
-
-SELECT idDispositivo INTO id2
-FROM casting INNER JOIN dispositivo ON casting.DispReceptor = dispositivo.idDispositivo
-WHERE casting.DispReceptor = NEW.DispReceptor;
-
-SELECT RedWifi INTO W1 
-FROM casting INNER JOIN dispositivo 
-ON dispositivo.idDispositivo = casting.DispEmisor;
-
-SELECT RedWifi INTO W2 
-FROM casting INNER JOIN dispositivo 
-ON dispositivo.idDispositivo = casting.DispReceptor;
-
-IF id1 = id2 THEN
-	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No se puede castear un dispositivo con si mismo';
-ELSE
-	IF W1 NOT LIKE w2 THEN
-		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error en la conexión WiFi de los dispositivos';
+	-- Variables
+	DECLARE W1 VARCHAR(20);
+	DECLARE W2 VARCHAR(20);
+	DECLARE id1 INT UNSIGNED;
+	DECLARE id2 INT UNSIGNED;
+	
+	SELECT idDispositivo INTO id1
+	FROM casting INNER JOIN dispositivo ON casting.DispEmisor = dispositivo.idDispositivo
+	WHERE casting.DispEmisor = NEW.DispEmisor;
+	
+	SELECT idDispositivo INTO id2
+	FROM casting INNER JOIN dispositivo ON casting.DispReceptor = dispositivo.idDispositivo
+	WHERE casting.DispReceptor = NEW.DispReceptor;
+	
+	SELECT RedWifi INTO W1 
+	FROM casting INNER JOIN dispositivo 
+	ON dispositivo.idDispositivo = casting.DispEmisor;
+	
+	SELECT RedWifi INTO W2 
+	FROM casting INNER JOIN dispositivo 
+	ON dispositivo.idDispositivo = casting.DispReceptor;
+	
+	IF id1 = id2 THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No se puede castear un dispositivo con si mismo';
+	ELSE
+		IF W1 NOT LIKE w2 THEN
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error en la conexión WiFi de los dispositivos';
+		END IF;
 	END IF;
-END IF;
 END$$
 
+/*
+--CASTING: after insert--------------------------
+- casting anula el modo de reproducción acelerado
+-------------------------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `casting_AFTER_INSERT` AFTER INSERT ON `casting` FOR EACH ROW BEGIN
 
 DECLARE id INT UNSIGNED;
@@ -620,123 +600,145 @@ WHERE(Reproduccionencurso.idReproduccion = id);
 
 END$$
 
--- DESCARGA
+/*
+--DESCARGA: before instert-------------------------------
+- Solo pueden descargar los dispositivos de alta gam
+- Máximo 4hs de descarga
+- no puede descargar si no pagó
+- Los niños no pueden descargar contenido que no sea ATP
+---------------------------------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `descarga_BEFORE_INSERT` BEFORE INSERT ON `descarga` FOR EACH ROW BEGIN
-DECLARE TotalMins INT UNSIGNED;
-DECLARE titulito VARCHAR(40);
-DECLARE fechita DATE;
-DECLARE VTO DATE;
-DECLARE califi VARCHAR(10);
-DECLARE gamita VARCHAR(10);
-
--- CHEQUEO SI ES ALTA GAMA
-SELECT ModeloDisp INTO gamita
-FROM descarga INNER JOIN dispositivo ON descarga.idDispositivo = dispositivo.idDispositivo
-WHERE descarga.idDispositivo = NEW.idDispositivo;
-
--- NO HAY ESPACIO PARA LA DESCARGA --
-SELECT SUM(contenido.Duracion) INTO TotalMins
-FROM descarga 
-INNER JOIN contenido ON descarga.TiOriginal = contenido.TiOriginal
-WHERE descarga.Username = NEW.Username;
-
--- YA LO DESCARGÓ --
-SELECT TiOriginal INTO titulito
-FROM descarga
-WHERE (Username = NEW.Username AND TiOriginal = NEW.TiOriginal);
-
--- ABONO VENCIDO --
-SELECT FechaVTO INTO VTO
-FROM descarga 
-INNER JOIN usuario ON descarga.Username = usuario.Username
-INNER JOIN abono ON usuario.Email = abono.Email
-WHERE usuario.Username = NEW.Username;
-
--- NIÑOS --
-SELECT FechaNac INTO fechita
-FROM descarga INNER JOIN usuario ON descarga.Username = usuario.Username
-WHERE Username = NEW.Username;
+	-- Variables
+	DECLARE TotalMins INT UNSIGNED;
+	DECLARE titulito VARCHAR(40);
+	DECLARE fechita DATE;
+	DECLARE VTO DATE;
+	DECLARE califi VARCHAR(10);
+	DECLARE gamita VARCHAR(10);
 	
-SELECT CalifSalida INTO califi
-FROM 
-(
--- Pelicula
-(SELECT TiOriginal FROM descarga 
-INNER JOIN pelicula ON descarga.TiOriginal = pelicula.TiOriginal) 
-    
-UNION
-    
--- Documental
-(SELECT TiOriginal FROM descarga 
-INNER JOIN documental ON descarga.TiOriginal = documental.TiOriginal)
-    
-UNION
-    
--- Serie
-(SELECT NombreSerie AS TiOriginal FROM descarga 
-INNER JOIN capitulo ON capitulo.TiOriginal = descarga.TiOriginal
-INNER JOIN serie ON serie.NombreSerie = capitulo.NombreSerie) 
-) as e
-WHERE(TiOriginal = NEW.TiOriginal);
-
--- Si ya lo descargó
-IF titulito IS NOT NULL THEN
-	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'el contenido ya ha sido descargado por el usuario';
-ELSE
-	-- Si no hay espacio
-	IF TotalMins + (SELECT Duracion FROM contenido WHERE TiOriginal = NEW.TiOriginal) > 240 THEN
-		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'NO HAY ESPACIO. La descarga supera el límite de 4 horas de contenido.';
-    ELSE
-		-- Si no pagó
-		IF CURDATE() >= VTO + 5 THEN
-			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Abono pendiente de pago.';
-		ELSE 
-			-- Si es niño
-			IF YEAR(CURDATE()) - YEAR(fechita) < 13 AND califi NOT LIKE 'ATP' THEN
-				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Restricción de menor de edad aplicada sobre este título';
-			ELSE
-				-- no es de alta gama
-				IF gamita NOT LIKE 'alta gama' THEN
-					SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El dispositivo donde se quiso descargar no es de alta gama';
-                ELSE
-					-- Si el dispositivo no le pertenece a la persona
-                    IF NEW.descarga.idDispositivo NOT IN (SELECT idDispositivo FROM dispositivo WHERE dispositivo.Username = NEW.descarga.Username) THEN
-						SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El dispositivo no le pertenece al usuario';
-                    END IF;
-                END IF;
+	-- CHEQUEO SI ES ALTA GAMA
+	SELECT ModeloDisp INTO gamita
+	FROM descarga INNER JOIN dispositivo ON descarga.idDispositivo = dispositivo.idDispositivo
+	WHERE descarga.idDispositivo = NEW.idDispositivo;
+	
+	-- NO HAY ESPACIO PARA LA DESCARGA --
+	SELECT SUM(contenido.Duracion) INTO TotalMins
+	FROM descarga 
+	INNER JOIN contenido ON descarga.TiOriginal = contenido.TiOriginal
+	WHERE descarga.Username = NEW.Username;
+	
+	-- YA LO DESCARGÓ --
+	SELECT TiOriginal INTO titulito
+	FROM descarga
+	WHERE (Username = NEW.Username AND TiOriginal = NEW.TiOriginal);
+	
+	-- ABONO VENCIDO --
+	SELECT FechaVTO INTO VTO
+	FROM descarga 
+	INNER JOIN usuario ON descarga.Username = usuario.Username
+	INNER JOIN abono ON usuario.Email = abono.Email
+	WHERE usuario.Username = NEW.Username;
+	
+	-- NIÑOS --
+	SELECT FechaNac INTO fechita
+	FROM descarga INNER JOIN usuario ON descarga.Username = usuario.Username
+	WHERE Username = NEW.Username;
+		
+	SELECT CalifSalida INTO califi
+	FROM 
+	(
+	-- Pelicula
+	(SELECT TiOriginal FROM descarga 
+	INNER JOIN pelicula ON descarga.TiOriginal = pelicula.TiOriginal) 
+	    
+	UNION
+	    
+	-- Documental
+	(SELECT TiOriginal FROM descarga 
+	INNER JOIN documental ON descarga.TiOriginal = documental.TiOriginal)
+	    
+	UNION
+	    
+	-- Serie
+	(SELECT NombreSerie AS TiOriginal FROM descarga 
+	INNER JOIN capitulo ON capitulo.TiOriginal = descarga.TiOriginal
+	INNER JOIN serie ON serie.NombreSerie = capitulo.NombreSerie) 
+	) as e
+	WHERE(TiOriginal = NEW.TiOriginal);
+	
+	-- Si ya lo descargó
+	IF titulito IS NOT NULL THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'el contenido ya ha sido descargado por el usuario';
+	ELSE
+		-- Si no hay espacio
+		IF TotalMins + (SELECT Duracion FROM contenido WHERE TiOriginal = NEW.TiOriginal) > 240 THEN
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'NO HAY ESPACIO. La descarga supera el límite de 4 horas de contenido.';
+	   	 ELSE
+			-- Si no pagó
+			IF CURDATE() >= VTO + 5 THEN
+				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Abono pendiente de pago.';
+			ELSE 
+				-- Si es niño
+				IF YEAR(CURDATE()) - YEAR(fechita) < 13 AND califi NOT LIKE 'ATP' THEN
+					SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Restricción de menor de edad aplicada sobre este título';
+				ELSE
+					-- no es de alta gama
+					IF gamita NOT LIKE 'alta gama' THEN
+						SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El dispositivo donde se quiso descargar no es de alta gama';
+	             			   ELSE
+						-- Si el dispositivo no le pertenece a la persona
+	                    			IF NEW.descarga.idDispositivo NOT IN (SELECT idDispositivo FROM dispositivo WHERE dispositivo.Username = NEW.descarga.Username) THEN
+							SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El dispositivo no le pertenece al usuario';
+	                    			END IF;
+	                		END IF;
+				END IF;
 			END IF;
 		END IF;
 	END IF;
-END IF;
-
 END$$
 
--- DISPOSITIVO
+/*
+--DISPOSITIVO: before insert---------------
+- máx 5 dispositivos vinculados por usuario
+-------------------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `dispositivo_BEFORE_INSERT` BEFORE INSERT ON `dispositivo` FOR EACH ROW BEGIN
-
-DECLARE cant INT UNSIGNED;
-
-SELECT count(Username) INTO cant
-FROM dispositivo
-WHERE (Username = NEW.Username) 
-GROUP BY Username;
-
-IF cant >= 5 THEN
-	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El usuario ya tiene 5 dispositivos.';
-END IF;
+	-- Variable
+	DECLARE cant INT UNSIGNED;
+	
+	SELECT count(Username) INTO cant
+	FROM dispositivo
+	WHERE (Username = NEW.Username) 
+	GROUP BY Username;
+	
+	IF cant >= 5 THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El usuario ya tiene 5 dispositivos.';
+	END IF;
 END$$
 
--- CONTENIDO (AGREGARLO EN CONTENIDO!!)
+/*
+--CONTENIDO: before insert------------------------
+- El año de lanzamiento no puede ser mayor que hoy
+--------------------------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `contenido_BEFORE_INSERT` BEFORE INSERT ON `contenido` FOR EACH ROW BEGIN
-IF NEW.AnioLanzamiento > YEAR(CURDATE()) THEN
-	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Año de lanzamiento inválido';
-END IF;
+	IF NEW.AnioLanzamiento > YEAR(CURDATE()) THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Año de lanzamiento inválido';
+	END IF;
 END$$
 
--- FAVORITO
+/*
+--FAVORITO: before instert---------------------------------
+- Máximo 10 favoritos
+- Si no pagó, no puede marcar favorito
+- Si es niño no puede marcar como favorito contenido no ATP
+-----------------------------------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `favorito_BEFORE_INSERT` BEFORE INSERT ON `favorito` FOR EACH ROW BEGIN
-	DECLARE califi VARCHAR(10);
-	DECLARE VTO DATE;
+    -- Variables
+    DECLARE califi VARCHAR(10);
+    DECLARE VTO DATE;
     DECLARE fechita DATE;
     DECLARE cant INT UNSIGNED;
     
@@ -746,12 +748,12 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `favorito_BEFORE_INSERT` BEFORE INSERT
     WHERE(Username = NEW.Username)
     GROUP BY Username;
 
-	-- NIÑOS --
-	SELECT FechaNac INTO fechita
+    -- NIÑOS --
+    SELECT FechaNac INTO fechita
     FROM favorito INNER JOIN usuario ON favorito.Username = usuario.Username
     WHERE Username = NEW.Username;
 	
-	SELECT CalifSalida INTO califi
+    SELECT CalifSalida INTO califi
     FROM 
     (
     -- Pelicula
@@ -798,30 +800,42 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `favorito_BEFORE_INSERT` BEFORE INSERT
 	END IF;
 END$$
 
--- PREMIO
+/*
+--PREMIO: before insert--------------------------------------
+- Una pelicula no puede ganar un premio antes de haber salido
+-------------------------------------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `premio_BEFORE_INSERT` BEFORE INSERT ON `premio` FOR EACH ROW BEGIN
-DECLARE aniesito INT UNSIGNED;
-
-SELECT AnioLanzamiento INTO aniesito
-FROM pelicula INNER JOIN contenido ON pelicula.TiOriginal = contenido.TiOriginal
-WHERE pelicula.idPelicula = NEW.idPelicula;
-
-IF NEW.Anio < aniesito THEN
-	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La pelicula no pudo ganar un premio antes de haber sido lanzada';
-END IF;
-
+	-- Variable
+	DECLARE aniesito INT UNSIGNED;
+	
+	SELECT AnioLanzamiento INTO aniesito
+	FROM pelicula INNER JOIN contenido ON pelicula.TiOriginal = contenido.TiOriginal
+	WHERE pelicula.idPelicula = NEW.idPelicula;
+	
+	IF NEW.Anio < aniesito THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La pelicula no pudo ganar un premio antes de haber sido lanzada';
+	END IF;
 END;
 
--- REPRODUCCIÓN EN CURSO
+/*
+--REPRODUCCION EN CURSO: before insert---------------------------------------------------------------------
+- No pude reproducir nada si no pagó
+- Los niños no pueden reproducir contenido ATP
+- si no tiene wifi y no esta descargado no puede reproducir
+- si no tiene wifi pero está descargado en modo 'normal' puede reproducir solo en castellano sin subtitulos
+-----------------------------------------------------------------------------------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `reproduccionencurso_BEFORE_INSERT` BEFORE INSERT ON `reproduccionencurso` FOR EACH ROW BEGIN
+	-- Variables
 	DECLARE fechita DATE;
 	DECLARE VTO DATE;
 	DECLARE califi VARCHAR(10);
 	DECLARE iAud INT UNSIGNED;
-    DECLARE iSub INT UNSIGNED;
-    DECLARE wifi_ VARCHAR(20);
-    DECLARE descargado VARCHAR(40);
-    DECLARE cal VARCHAR(10);
+	DECLARE iSub INT UNSIGNED;
+	DECLARE wifi_ VARCHAR(20);
+	DECLARE descargado VARCHAR(40);
+	DECLARE cal VARCHAR(10);
     
     SELECT NEW.IdAudio INTO iAud;
     SELECT NEW.IdSubtitulo INTO iSub;
@@ -841,18 +855,18 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `reproduccionencurso_BEFORE_INSERT` BE
     
     -- ABONO VENCIDO --
     SELECT FechaVTO INTO VTO
-	FROM reproduccionencurso 
-	INNER JOIN usuario ON reproduccionencurso.Username = usuario.Username
-	INNER JOIN abono ON usuario.Email = abono.Email
-	WHERE usuario.Username = NEW.usuario.Username
-	GROUP BY Email;
+    FROM reproduccionencurso 
+    INNER JOIN usuario ON reproduccionencurso.Username = usuario.Username
+    INNER JOIN abono ON usuario.Email = abono.Email
+    WHERE usuario.Username = NEW.usuario.Username
 
-	-- NIÑOS --
-	SELECT FechaNac INTO fechita
+
+    -- NIÑOS --
+    SELECT FechaNac INTO fechita
     FROM reproduccionencurso INNER JOIN usuario ON reproduccionencurso.Username = usuario.Username
     WHERE Username = NEW.Username;
 	
-	SELECT CalifSalida INTO califi
+    SELECT CalifSalida INTO califi
     FROM 
     (
     -- Pelicula
@@ -883,7 +897,7 @@ ELSE
 	IF YEAR(CURDATE()) - YEAR(fechita) < 13 AND califi NOT LIKE 'ATP' THEN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Restricción de menor de edad aplicada sobre este título';
 	-- Si no
-    ELSE
+        ELSE
 		-- Si no tiene el audio seleccionado
 		IF iAud NOT IN (SELECT idAudio FROM audiocontenido WHERE (audiocontenido.TiOriginal = NEW.TiOriginal)) THEN
 			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Idioma de audio no disponible en este título';
@@ -899,7 +913,7 @@ ELSE
 					IF descargado IS NOT NULL AND cal LIKE 'normal' THEN
 						SET NEW.IdAudio = 1;
 						SET NEW.IdSubtitulo = NULL;
-                    END IF;
+                   			 END IF;
 				END IF;
 			END IF;
 		END IF;
@@ -908,51 +922,41 @@ END IF;
 
 END$$
 
-/*CREATE DEFINER=`root`@`localhost` TRIGGER `reproduccionencurso_AFTER_UPDATE` AFTER UPDATE ON `reproduccionencurso` FOR EACH ROW BEGIN
-	DECLARE DurContenido INT UNSIGNED;
-
-    SELECT Duracion INTO DurContenido
-    FROM contenido
-    WHERE TiOriginal = NEW.TiOriginal;
-	
-    -- Si se terminó de reproducir
-    IF NEW.PtoSuspenso = DurContenido THEN
-		-- Se inserta el registro en la tabla historial 
-        INSERT INTO historial (TiOriginal, FechaVisto, Username, IdiomaAudio)
-        VALUES (NEW.TiOriginal, NEW.FechaVisto, NEW.Username, NEW.IdiomaAudio);
-	
-		-- Se saca el registro de la tabla de reproducción
-        DELETE FROM reproduccionencurso
-        WHERE reproduccionencurso.idReproduccion = NEW.idReproduccion;
-    END IF;
-END$$*/
-
+/*
+--REPRODUCCION EN CURSO: before delete--------------------------------------------------
+- un usuario puede eliminar de la lista de reproduccion en curso pero no de su historial
+----------------------------------------------------------------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `reproduccionencurso_BEFORE_DELETE` BEFORE DELETE ON `reproduccionencurso` FOR EACH ROW BEGIN
-
-DECLARE puntito INT UNSIGNED;
-DECLARE duracioncita INT UNSIGNED;
-
-SELECT PtoSuspenso INTO puntito
-FROM reproduccionencurso
-WHERE reproduccionencurso.PtoSuspenso = OLD.reproduccionencurso.PtoSuspenso;
-
-SELECT duracion INTO duracioncita
-FROM reproduccionencurso INNER JOIN contenido ON reproduccionencurso.TiOriginal = contenido.TiOriginal
-WHERE reproduccionencurso.TiOriginal = OLD.reproduccionencurso.TiOriginal;
-
-
-IF duracioncita >= puntito THEN
-	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No puedes eliminar tu historial';
-END IF;
-
+	-- Variables
+	DECLARE puntito INT UNSIGNED;
+	DECLARE duracioncita INT UNSIGNED;
+	
+	SELECT PtoSuspenso INTO puntito
+	FROM reproduccionencurso
+	WHERE reproduccionencurso.PtoSuspenso = OLD.reproduccionencurso.PtoSuspenso;
+	
+	SELECT duracion INTO duracioncita
+	FROM reproduccionencurso INNER JOIN contenido ON reproduccionencurso.TiOriginal = contenido.TiOriginal
+	WHERE reproduccionencurso.TiOriginal = OLD.reproduccionencurso.TiOriginal;
+	
+	
+	IF duracioncita >= puntito THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No puedes eliminar tu historial';
+	END IF;
 END;
 
--- USUARIO
+/*
+--USUARIO: before insert-------
+- Máximo 3 usuarios por cuenta
+-------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `usuario_BEFORE_INSERT` BEFORE INSERT ON `usuario` FOR EACH ROW BEGIN
-	DECLARE TotalUsuarios INT UNSIGNED;
-    DECLARE fechanaci DATE;
+   -- Variables
+   DECLARE TotalUsuarios INT UNSIGNED;
+   DECLARE fechanaci DATE;
     
-	SELECT NEW.FechaNac INTO fechanaci;
+   SELECT NEW.FechaNac INTO fechanaci;
     
     SELECT SUM(usuario.Email) INTO TotalUsuarios
     FROM usuario 
@@ -963,7 +967,7 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `usuario_BEFORE_INSERT` BEFORE INSERT 
 	IF YEAR(fechanaci > CURDATE()) OR YEAR(NEW.FechaNac) < 1910 THEN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Fecha de nacimiento invalida';
 	-- Si no
-    ELSE
+   	ELSE
         -- Si hay 3 o más usuarios en un mismo mail
 		IF TotalUsuarios >= 3 THEN
 			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Ya hay 3 usuarios en la cuenta';
@@ -972,79 +976,88 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `usuario_BEFORE_INSERT` BEFORE INSERT 
     
 END$$
 
--- WATCHPARTY
+/*
+--WATCHPARTY: before insert---------------------------
+- Si un usuario no pago, no se puede hacer watchparty
+- No se puede hacer watchparty consigo mismo
+-------------------------------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `watchparty_BEFORE_INSERT` BEFORE INSERT ON `watchparty` FOR EACH ROW BEGIN
-
-DECLARE user1 VARCHAR(20);
-DECLARE user2 VARCHAR(20);
-DECLARE fechita1 DATE;
-DECLARE fechita2 DATE;
-DECLARE califi VARCHAR(10);
-
-SELECT NEW.UserEmisor INTO user1;
-SELECT New.UserReceptor INTO user2;
-
--- NIÑOS --
-SELECT FechaNac INTO fechita1
-FROM watchparty INNER JOIN usuario ON watchparty.UserEmisor = usuario.Username
-WHERE usuario.Username = NEW.UserEmisor;
-
-SELECT FechaNac INTO fechita2
-FROM watchparty INNER JOIN usuario ON watchparty.UserReceptor = usuario.Username
-WHERE usuario.Username = NEW.UserReceptor;
+	-- Variables
+	DECLARE user1 VARCHAR(20);
+	DECLARE user2 VARCHAR(20);
+	DECLARE fechita1 DATE;
+	DECLARE fechita2 DATE;
+	DECLARE califi VARCHAR(10);
 	
-SELECT CalifSalida INTO califi
-FROM 
-(
--- Pelicula
-(SELECT TiOriginal FROM watchparty 
-INNER JOIN reproduccionencurso ON watchparty.idReproduccion = reproduccionencurso.idReproduccion
-INNER JOIN pelicula ON pelicula.TiOriginal = reproduccionencurso.TiOriginal) 
-    
-UNION
-    
--- Documental
-(SELECT TiOriginal FROM watchparty 
-INNER JOIN reproduccionencurso ON watchparty.idReproduccion = reproduccionencurso.idReproduccion
-INNER JOIN documental ON documental.TiOriginal = reproduccionencurso.TiOriginal) 
-    
-UNION
-    
--- Serie
-(SELECT NombreSerie AS TiOriginal FROM watchparty 
-INNER JOIN reproduccionencurso ON watchparty.idReproduccion = reproduccionencurso.idReproduccion
-INNER JOIN capitulo ON capitulo.TiOriginal = reproduccionencurso.TiOriginal
-INNER JOIN serie ON serie.NombreSerie = capitulo.NombreSerie) 
-) as e
-WHERE(idReproduccion = NEW.idReproduccion);
-
-IF user1 LIKE user2 THEN
-	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No puedes hacer watchparty con vos mismo';
-ELSE
-	IF (YEAR(CURDATE()) - YEAR(fechita1) < 13 OR YEAR(CURDATE()) - YEAR(fechita2) < 13) AND califi NOT LIKE 'ATP' THEN
-		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Restricción de menor de edad aplicada sobre este título';
+	SELECT NEW.UserEmisor INTO user1;
+	SELECT New.UserReceptor INTO user2;
+	
+	-- NIÑOS --
+	SELECT FechaNac INTO fechita1
+	FROM watchparty INNER JOIN usuario ON watchparty.UserEmisor = usuario.Username
+	WHERE usuario.Username = NEW.UserEmisor;
+	
+	SELECT FechaNac INTO fechita2
+	FROM watchparty INNER JOIN usuario ON watchparty.UserReceptor = usuario.Username
+	WHERE usuario.Username = NEW.UserReceptor;
+		
+	SELECT CalifSalida INTO califi
+	FROM 
+	(
+	-- Pelicula
+	(SELECT TiOriginal FROM watchparty 
+	INNER JOIN reproduccionencurso ON watchparty.idReproduccion = reproduccionencurso.idReproduccion
+	INNER JOIN pelicula ON pelicula.TiOriginal = reproduccionencurso.TiOriginal) 
+	    
+	UNION
+	    
+	-- Documental
+	(SELECT TiOriginal FROM watchparty 
+	INNER JOIN reproduccionencurso ON watchparty.idReproduccion = reproduccionencurso.idReproduccion
+	INNER JOIN documental ON documental.TiOriginal = reproduccionencurso.TiOriginal) 
+	    
+	UNION
+	    
+	-- Serie
+	(SELECT NombreSerie AS TiOriginal FROM watchparty 
+	INNER JOIN reproduccionencurso ON watchparty.idReproduccion = reproduccionencurso.idReproduccion
+	INNER JOIN capitulo ON capitulo.TiOriginal = reproduccionencurso.TiOriginal
+	INNER JOIN serie ON serie.NombreSerie = capitulo.NombreSerie) 
+	) as e
+	WHERE(idReproduccion = NEW.idReproduccion);
+	
+	IF user1 LIKE user2 THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No puedes hacer watchparty con vos mismo';
+	ELSE
+		IF (YEAR(CURDATE()) - YEAR(fechita1) < 13 OR YEAR(CURDATE()) - YEAR(fechita2) < 13) AND califi NOT LIKE 'ATP' THEN
+			SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Restricción de menor de edad aplicada sobre este título';
+		END IF;
 	END IF;
-END IF;
-
 END$$
 
+/*
+--WATCHPARTY: after insert--------------------------------------------------------------
+- se debe agregar a la tabla de reproduccionencurso la reproduccion del usuario receptor
+----------------------------------------------------------------------------------------
+*/
 CREATE DEFINER=`root`@`localhost` TRIGGER `watchparty_AFTER_INSERT` AFTER INSERT ON `watchparty` FOR EACH ROW BEGIN
-
-DECLARE titulo VARCHAR(40);
-DECLARE v FLOAT UNSIGNED;
-DECLARE ps INT UNSIGNED;
-DECLARE fv DATE;
-DECLARE ia VARCHAR(10);
-DECLARE isub VARCHAR(10);
-
-SELECT TiOriginal, Velocidad, PtoSuspenso, FechaVisto, IdiomaAudio, IdiomaSubtitulo INTO titulo, v, ps, fv, ia, isub
-FROM watchparty
-INNER JOIN reproduccionencurso ON watchparty.idReproduccion = reproduccionencurso.idReproduccion
-WHERE(NEW.watchparty.idReproduccion = watchparty.idReproduccion);
-
-INSERT INTO Reproduccionencurso (TiOriginal, Username, Velocidad, PtoSuspenso, FechaVisto, IdiomaAudio, IdiomaSubtitulo)
-VALUES (titulo, UserReceptor, v, ps, fv, ia, isub);
-
+	
+	-- Variables
+	DECLARE titulo VARCHAR(40);
+	DECLARE v FLOAT UNSIGNED;
+	DECLARE ps INT UNSIGNED;
+	DECLARE fv DATE;
+	DECLARE ia VARCHAR(10);
+	DECLARE isub VARCHAR(10);
+	
+	SELECT TiOriginal, Velocidad, PtoSuspenso, FechaVisto, IdiomaAudio, IdiomaSubtitulo INTO titulo, v, ps, fv, ia, isub
+	FROM watchparty
+	INNER JOIN reproduccionencurso ON watchparty.idReproduccion = reproduccionencurso.idReproduccion
+	WHERE(NEW.watchparty.idReproduccion = watchparty.idReproduccion);
+	
+	INSERT INTO Reproduccionencurso (TiOriginal, Username, Velocidad, PtoSuspenso, FechaVisto, IdiomaAudio, IdiomaSubtitulo)
+	VALUES (titulo, UserReceptor, v, ps, fv, ia, isub);
 END;$$
 
 SET SQL_MODE=@OLD_SQL_MODE;
