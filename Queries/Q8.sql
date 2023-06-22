@@ -15,8 +15,7 @@ SELECT
 FROM
 	Deudor
     INNER JOIN usuario ON usuario.Email = Deudor.Email
-	INNER JOIN reproduccionencurso ON usuario.Username = reproduccionencurso.Username
-    INNER JOIN historial ON usuario.Username = historial.Username
+    INNER JOIN reproduccionencurso ON usuario.Username = reproduccionencurso.Username
 WHERE 
 	reproduccionencurso.FechaVisto > CURDATE() - 2
 GROUP BY Cuenta
