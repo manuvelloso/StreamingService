@@ -10,8 +10,8 @@ UNION
 SELECT
 	serie.NombreSerie AS Series
 FROM
-	contenido
-	INNER JOIN capitulo ON contenido.TiOriginal = capitulo.TiOriginal
+    contenido
+    INNER JOIN capitulo ON contenido.TiOriginal = capitulo.TiOriginal
     INNER JOIN serie ON capitulo.NombreSerie = serie.NombreSerie
 WHERE 
 	serie.CalifSalida LIKE "%ATP%"
