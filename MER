@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-21T10:55:56.959Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="Nid_ittIOzd7W6jpJfnF" version="21.5.0" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-06-22T19:04:12.948Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="oEVHfuJGahLNnRqqUmSX" version="21.5.0" type="github" pages="2">
   <diagram name="MER Guarnieri - Velloso" id="XMN2fW3la1VK486EDawt">
     <mxGraphModel dx="1947" dy="1697" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -1242,7 +1242,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="MER Guarnieri - Velloso NUEVO" id="Rv25M2ItdWumpLifQGOh">
-    <mxGraphModel dx="2227" dy="1829" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1190" dy="1912" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="X9i4_WSpEuV2tP39xlSB-0" />
         <mxCell id="X9i4_WSpEuV2tP39xlSB-1" parent="X9i4_WSpEuV2tP39xlSB-0" />
@@ -2386,17 +2386,20 @@
             <mxPoint x="1190" y="1" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ed1B1tx9g9_KAXMiSMrM-0" value="año &lt;br&gt;lanzamiento" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="X9i4_WSpEuV2tP39xlSB-1">
+        <mxCell id="ed1B1tx9g9_KAXMiSMrM-0" value="año &lt;br&gt;lanzamiento" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="X9i4_WSpEuV2tP39xlSB-1" vertex="1">
           <mxGeometry x="881.01" y="79.25" width="100" height="42.25" as="geometry" />
         </mxCell>
-        <mxCell id="ed1B1tx9g9_KAXMiSMrM-1" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontStyle=1;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="X9i4_WSpEuV2tP39xlSB-1" source="X9i4_WSpEuV2tP39xlSB-239" target="ed1B1tx9g9_KAXMiSMrM-0">
+        <mxCell id="ed1B1tx9g9_KAXMiSMrM-1" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontStyle=1;exitX=0;exitY=0;exitDx=0;exitDy=0;" parent="X9i4_WSpEuV2tP39xlSB-1" source="X9i4_WSpEuV2tP39xlSB-239" target="ed1B1tx9g9_KAXMiSMrM-0" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="1020" y="140" as="sourcePoint" />
             <mxPoint x="1006" y="78" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ed1B1tx9g9_KAXMiSMrM-2" value="año de lanzamiento" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="X9i4_WSpEuV2tP39xlSB-1">
+        <mxCell id="ed1B1tx9g9_KAXMiSMrM-2" value="año de lanzamiento" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="X9i4_WSpEuV2tP39xlSB-1" vertex="1">
           <mxGeometry x="1120" y="530" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="scfoY7IORPdyxQtm6QUZ-0" value="PONER COMO FECHA !!" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="X9i4_WSpEuV2tP39xlSB-1">
+          <mxGeometry x="1365" y="645.5" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
