@@ -17,4 +17,4 @@ INNER JOIN usuario ON usuario.Username = watchparty.UserReceptor)
 WHERE(YEAR(CURDATE() - FechaNac) BETWEEN 14 AND 19)
 GROUP BY TiOriginal
 ORDER BY cant
-
+LIMIT 1
