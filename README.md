@@ -1,5 +1,5 @@
-# StreamingService
-TP final de BD
+# StreamingService - TP final de BD
+
 💻 Base de datos de un servicio de streaming 
 
 ### CARPETAS Y DOCUMENTOS
